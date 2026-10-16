@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Alejo Web Studio · Webs para pequeños negocios</title>
+<meta name="description" content="Hacemos webs rápidas y seguras para pequeños negocios de Latinoamérica y España. Te enseñamos una maqueta gratis antes de pagar nada.">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<meta property="og:title" content="Alejo Web Studio">
+<meta property="og:description" content="Webs para pequeños negocios. Maqueta gratis antes de pagar.">
+<meta property="og:image" content="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--fog:#F3F5F8;--ink:#14213D;--cobalt:#3157D5;--marigold:#F5B700;--slate:#5A6478;--line:#D9DEE7;--white:#fff}
+*{box-sizing:border-box;margin:0}
+body{font-family:Figtree,system-ui,sans-serif;background:var(--fog);color:var(--ink);line-height:1.6;font-size:17px}
+a{color:var(--cobalt)}
+:focus-visible{outline:3px solid var(--marigold);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.brand{display:flex;align-items:center;gap:10px;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none}
+.brand img{width:36px;height:36px}
+.btn{display:inline-block;background:var(--cobalt);color:#fff;text-decoration:none;font-weight:600;padding:13px 22px;border-radius:12px}
+.btn.soft{background:var(--white);color:var(--ink);border:1.5px solid var(--line)}
+.hero{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:center;padding:40px 0 72px}
+h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(38px,5.4vw,64px);line-height:1.02;letter-spacing:-1px}
+.lead{font-size:19px;color:var(--slate);margin:20px 0 28px;max-width:38ch}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+.phones{position:relative;height:540px}
+.phone{position:absolute;width:210px;border-radius:30px;background:var(--ink);padding:8px;box-shadow:0 30px 60px -20px rgba(20,33,61,.45)}
+.phone img{display:block;width:100%;border-radius:23px}
+.phone:nth-child(1){left:0;top:70px;transform:rotate(-7deg)}
+.phone:nth-child(2){left:calc(50% - 105px);top:0;z-index:2}
+.phone:nth-child(3){right:0;top:70px;transform:rotate(7deg)}
+section{padding:72px 0;border-top:1px solid var(--line)}
+h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(30px,3.6vw,42px);line-height:1.1;margin-bottom:28px;max-width:20ch}
+.incl{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px 44px}
+.incl h3{font-size:18px;margin-bottom:4px}
+.incl p{color:var(--slate)}
+.prices{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.plan{background:var(--white);border:1.5px solid var(--line);border-radius:20px;padding:30px}
+.plan.main{border-color:var(--cobalt);box-shadow:inset 0 0 0 1px var(--cobalt)}
+.plan h3{font-size:20px}
+.amount{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:46px;margin:8px 0 2px}
+.amount small{font-size:17px;font-family:Figtree,sans-serif;font-weight:500;color:var(--slate)}
+.plan ul{padding-left:20px;margin-top:14px;color:var(--slate)}
+.plan li{margin:6px 0}
+.extra{margin-top:20px;color:var(--slate)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;counter-reset:s}
+.steps div{counter-increment:s}
+.steps div:before{content:counter(s);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--marigold);font-weight:800;margin-bottom:14px}
+.steps p{color:var(--slate)}
+.work{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.work a{display:block;text-decoration:none;color:var(--ink)}
+.work img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;border-radius:16px;border:1.5px solid var(--line);background:#fff}
+.work h3{margin-top:12px;font-size:18px}
+.work p{color:var(--slate);font-size:15px}
+.contact{background:var(--ink);color:#fff;border-radius:28px;padding:48px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.contact h2{margin:0 0 8px}
+.contact p{color:#C3CBDA}
+.contact .btn{background:var(--marigold);color:var(--ink)}
+footer{padding:36px 0;color:var(--slate);font-size:15px}
+@media (max-width:860px){.hero,.prices{grid-template-columns:1fr}.phones{height:420px}.phone{width:160px}.phone:nth-child(2){left:calc(50% - 80px)}.steps,.work{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps,.work{grid-template-columns:1fr}.phones{height:340px}.phone{width:130px;border-radius:22px;padding:6px}.phone img{border-radius:17px}.phone:nth-child(2){left:calc(50% - 65px)}.contact{padding:30px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="brand" href="./"><img src="img/logo.svg" alt="">Alejo Web Studio</a>
+    <a class="btn soft" href="mailto:alejo.webstudio@gmail.com">Escribir</a>
+  </nav>
+
+  <div class="hero">
+    <div>
+      <h1>Tu negocio ya tiene clientes. Ahora dales una web donde encontrarte.</h1>
+      <p class="lead">Hacemos webs rápidas y seguras para talleres, clínicas, restaurantes y tiendas. Antes de pagar nada, te enseñamos cómo quedaría la tuya.</p>
+      <div class="actions">
+        <a class="btn" href="mailto:alejo.webstudio@gmail.com?subject=Quiero%20ver%20la%20maqueta%20de%20mi%20web">Pedir mi maqueta gratis</a>
+        <a class="btn soft" href="#ejemplos">Ver ejemplos</a>
+      </div>
+    </div>
+    <div class="phones" aria-hidden="true">
+      <div class="phone"><img src="img/taller.png" alt=""></div>
+      <div class="phone"><img src="img/veterinaria.png" alt=""></div>
+      <div class="phone"><img src="img/restaurante.png" alt=""></div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>Qué lleva cada web</h2>
+    <div class="incl">
+      <div><h3>Diseño a medida</h3><p>Con tu logo, tus colores y tus fotos. Nada de plantillas repetidas.</p></div>
+      <div><h3>Se ve bien en el móvil</h3><p>La mayoría de tus clientes te buscan desde el teléfono.</p></div>
+      <div><h3>Botón de WhatsApp y mapa</h3><p>Un toque para escribirte, llamarte o llegar a tu local.</p></div>
+      <div><h3>Segura y sin mantenimiento</h3><p>Web estática con HTTPS: no hay plugins ni contraseñas que hackear.</p></div>
+      <div><h3>Lista para Google</h3><p>Título, descripción y datos de tu negocio para que Google te muestre bien.</p></div>
+      <div><h3>Cambios fáciles</h3><p>Precios, menú u horario los puedes cambiar tú desde una hoja de cálculo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Precios claros, sin cuotas escondidas</h2>
+    <div class="prices">
+      <div class="plan main">
+        <h3>Web de una página</h3>
+        <p class="amount">120 USD <small>pago único</small></p>
+        <ul><li>Diseño a medida para tu negocio</li><li>Servicios, horario, mapa y WhatsApp</li><li>Publicada con HTTPS</li><li>Dos rondas de cambios</li></ul>
+      </div>
+      <div class="plan">
+        <h3>Renovar tu web actual</h3>
+        <p class="amount">80 USD <small>pago único</small></p>
+        <ul><li>Rehacemos tu web vieja o que se ve mal en el móvil</li><li>Mantenemos tus textos y tu dominio</li><li>Más rápida y más segura</li><li>Dos rondas de cambios</li></ul>
+      </div>
+    </div>
+    <p class="extra">El dominio (tunegocio.com) lo pagas tú directamente a quien lo vende, unos 10-15 USD al año, y queda siempre a tu nombre.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Cómo trabajamos</h2>
+    <div class="steps">
+      <div><h3>Maqueta gratis</h3><p>Te enviamos una vista previa de tu web con tus datos. Si no te gusta, no pagas nada.</p></div>
+      <div><h3>Mitad para empezar</h3><p>Si te gusta, pagas el 50 % por PayPal y la terminamos en 3-5 días.</p></div>
+      <div><h3>Revisas y ajustas</h3><p>Nos dices qué cambiar. Incluye dos rondas de cambios.</p></div>
+      <div><h3>Pagas el resto y se publica</h3><p>Con el otro 50 % la publicamos en tu dominio y es tuya.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="ejemplos">
+  <div class="wrap">
+    <h2>Ejemplos</h2>
+    <div class="work">
+      <a href="demos/veterinaria/"><img src="img/veterinaria.png" alt="Web de ejemplo de una clínica veterinaria"><h3>Clínica veterinaria</h3><p>Citas por WhatsApp, urgencias 24 h y horario.</p></a>
+      <a href="demos/taller/"><img src="img/taller.png" alt="Web de ejemplo de un taller mecánico"><h3>Taller mecánico</h3><p>Servicios con precio orientativo y presupuesto por WhatsApp.</p></a>
+      <a href="demos/restaurante/"><img src="img/restaurante.png" alt="Web de ejemplo de un restaurante"><h3>Restaurante</h3><p>Menú del día que el dueño actualiza solo.</p></a>
+    </div>
+    <p class="extra">Son negocios ficticios hechos para enseñar nuestro trabajo.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="contact">
+    <div><h2>¿Quieres ver cómo quedaría la tuya?</h2><p>Dinos el nombre de tu negocio y en 48 horas te enviamos la maqueta.</p></div>
+    <a class="btn" href="mailto:alejo.webstudio@gmail.com?subject=Quiero%20ver%20la%20maqueta%20de%20mi%20web">alejo.webstudio@gmail.com</a>
+  </div>
+</div>
+<footer><div class="wrap">Alejo Web Studio · Alejandro</div></footer>
+</body>
+</html>

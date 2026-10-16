@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Fonda La Comadre · Web de ejemplo</title>
+<meta name="description" content="Web de ejemplo de Alejo Web Studio para un restaurante ficticio.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--chile:#B3261E;--corn:#F2C14E;--talavera:#1D4E89;--white:#FFFDF8;--ink:#231A16;--muted:#6B5B53}
+*{box-sizing:border-box;margin:0}
+body{font-family:"Work Sans",system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--talavera);outline-offset:3px}
+.demo{background:var(--talavera);color:#fff;font-size:14px;text-align:center;padding:8px 16px}
+.tile{height:22px;background:
+ radial-gradient(circle at 11px 11px,var(--talavera) 5px,transparent 6px) 0 0/22px 22px,
+ linear-gradient(var(--white),var(--white));border-bottom:2px solid var(--talavera)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.name{font-family:Fraunces,serif;font-weight:800;font-size:24px;color:var(--chile);text-decoration:none}
+.hero{text-align:center;padding:48px 0 64px}
+h1{font-family:Fraunces,serif;font-weight:800;font-size:clamp(42px,7vw,84px);line-height:1;color:var(--chile)}
+.hero p{max-width:40ch;margin:20px auto 28px;color:var(--muted);font-size:19px}
+.btn{display:inline-block;background:var(--chile);color:#fff;text-decoration:none;font-weight:600;padding:13px 22px;border-radius:10px}
+.btn.alt{background:var(--corn);color:var(--ink);margin-left:8px}
+.today{background:var(--corn);padding:56px 0}
+h2{font-family:Fraunces,serif;font-size:36px;margin-bottom:22px}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:6px 48px}
+.item{display:flex;align-items:baseline;gap:10px;padding:10px 0}
+.item span:nth-child(2){flex:1;border-bottom:2px dotted rgba(35,26,22,.35);transform:translateY(-4px)}
+.item b{font-weight:600}
+.note{margin-top:18px;font-size:15px}
+section{padding:64px 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.box{border:2px solid var(--talavera);border-radius:16px;padding:26px}
+.box p{color:var(--muted)}
+footer{background:var(--chile);color:#FBE3DF;padding:26px 0;font-size:15px}
+@media (max-width:720px){.menu,.two{grid-template-columns:1fr}.btn.alt{margin:10px 0 0}}
+</style>
+</head>
+<body>
+<p class="demo">Web de ejemplo hecha por <a href="../../" style="color:#fff">Alejo Web Studio</a>. El restaurante es ficticio.</p>
+<div class="tile" aria-hidden="true"></div>
+<div class="wrap top"><a class="name" href="#">La Comadre</a><a class="btn" href="#pedir">Pedir para llevar</a></div>
+<div class="hero wrap">
+  <h1>Comida de casa, como la hace tu comadre.</h1>
+  <p>Guisados del día, caldos y aguas frescas. Comes aquí o te lo llevamos en 30 minutos.</p>
+  <a class="btn" href="#menu">Ver el menú de hoy</a><a class="btn alt" href="#pedir">Pedir por WhatsApp</a>
+</div>
+
+<div class="today" id="menu">
+  <div class="wrap">
+    <h2>Menú del día</h2>
+    <div class="menu">
+      <div class="item"><b>Comida corrida completa</b><span></span><b>$95</b></div>
+      <div class="item"><b>Chiles rellenos de queso</b><span></span><b>$110</b></div>
+      <div class="item"><b>Mole con pollo</b><span></span><b>$120</b></div>
+      <div class="item"><b>Caldo de res</b><span></span><b>$90</b></div>
+      <div class="item"><b>Enchiladas verdes</b><span></span><b>$85</b></div>
+      <div class="item"><b>Agua fresca del día</b><span></span><b>$25</b></div>
+    </div>
+    <p class="note">La comida corrida incluye sopa, guisado, arroz, frijoles, tortillas y postre. El dueño cambia este menú él mismo desde una hoja de cálculo.</p>
+  </div>
+</div>
+
+<section id="pedir">
+  <div class="wrap two">
+    <div class="box"><h2>Horario</h2><p>Lunes a sábado, de 9:00 a 19:00.<br>Domingo cerrado.</p></div>
+    <div class="box"><h2>Pedidos</h2><p>Escríbenos por WhatsApp con tu pedido y tu dirección. Aquí irían el número real, la dirección y el mapa.</p><p style="margin-top:14px"><a class="btn" href="#">Abrir WhatsApp</a></p></div>
+  </div>
+</section>
+<footer><div class="wrap">Fonda La Comadre · negocio ficticio de ejemplo · Diseño: <a href="../../">Alejo Web Studio</a></div></footer>
+</body>
+</html>

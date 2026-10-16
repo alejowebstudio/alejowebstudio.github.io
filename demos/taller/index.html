@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Ruedamaestra Taller Automotriz · Web de ejemplo</title>
+<meta name="description" content="Web de ejemplo de Alejo Web Studio para un taller mecánico ficticio.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--graphite:#1F2328;--steel:#2C333A;--orange:#FF6B00;--fog:#C9D1D9;--paper:#F2F4F6}
+*{box-sizing:border-box;margin:0}
+body{font-family:Barlow,system-ui,sans-serif;background:var(--graphite);color:#fff;line-height:1.55;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.demo{background:var(--orange);color:#1F2328;font-size:14px;text-align:center;padding:8px 16px;font-weight:600}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:26px;letter-spacing:.5px;text-decoration:none}
+.logo span{color:var(--orange)}
+.hero{position:relative;overflow:hidden;padding:56px 0 80px}
+.hero:after{content:"";position:absolute;right:-120px;top:0;bottom:0;width:46%;background:repeating-linear-gradient(-45deg,var(--orange) 0 26px,transparent 26px 52px);opacity:.9;clip-path:polygon(30% 0,100% 0,100% 100%,0 100%)}
+.hero .wrap{position:relative;z-index:1}
+h1{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:clamp(46px,8vw,96px);line-height:.95;max-width:11ch}
+.hero p{font-size:20px;color:var(--fog);max-width:36ch;margin:22px 0 30px}
+.btn{display:inline-block;background:var(--orange);color:#1F2328;font-weight:600;padding:14px 22px;text-decoration:none;border-radius:4px}
+.btn.line{background:transparent;color:#fff;border:2px solid #fff;margin-left:10px}
+.facts{display:flex;gap:40px;flex-wrap:wrap;margin-top:44px;color:var(--fog)}
+.facts strong{display:block;font-family:"Barlow Condensed",sans-serif;font-size:36px;color:#fff}
+section{padding:72px 0}
+.light{background:var(--paper);color:var(--graphite)}
+h2{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:44px;line-height:1;margin-bottom:28px}
+.list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0}
+.list div{padding:22px 0;border-top:3px solid var(--graphite);margin-right:28px}
+.list h3{font-size:20px;margin-bottom:4px}
+.list p{color:#4A535C}
+.price{font-family:"Barlow Condensed",sans-serif;font-size:22px;color:var(--orange);font-weight:600}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
+.steps b{font-family:"Barlow Condensed",sans-serif;font-size:48px;color:var(--orange);display:block;line-height:1}
+.steps p{color:var(--fog)}
+.cta{background:var(--steel);border-left:8px solid var(--orange);padding:32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer{padding:28px 0;color:var(--fog);font-size:15px;border-top:1px solid #3A424A}
+@media (max-width:700px){.hero:after{width:100%;opacity:.15;clip-path:none}.btn.line{margin:10px 0 0}}
+</style>
+</head>
+<body>
+<p class="demo">Web de ejemplo hecha por <a href="../../">Alejo Web Studio</a>. El taller es ficticio.</p>
+<div class="wrap top">
+  <a class="logo" href="#">RUEDA<span>MAESTRA</span></a>
+  <a class="btn" href="#cita">Pedir presupuesto</a>
+</div>
+<div class="hero">
+  <div class="wrap">
+    <h1>Tu auto, revisado y explicado.</h1>
+    <p>Diagnóstico por computadora, mecánica general y frenos. Te mandamos fotos de cada pieza antes de cambiarla.</p>
+    <a class="btn" href="#cita">Agendar revisión</a><a class="btn line" href="#servicios">Ver servicios</a>
+    <div class="facts"><div><strong>12 años</strong>en el barrio</div><div><strong>Garantía</strong>de 3 meses en cada arreglo</div><div><strong>Mismo día</strong>en cambios de aceite</div></div>
+  </div>
+</div>
+
+<section class="light" id="servicios">
+  <div class="wrap">
+    <h2>Servicios</h2>
+    <div class="list">
+      <div><h3>Mantenimiento</h3><p>Aceite, filtros y revisión de 20 puntos.</p><p class="price">desde S/ 120</p></div>
+      <div><h3>Frenos</h3><p>Pastillas, discos y líquido. Prueba en ruta incluida.</p><p class="price">desde S/ 150</p></div>
+      <div><h3>Escáner y electricidad</h3><p>Leemos los códigos de falla y te explicamos qué significan.</p><p class="price">desde S/ 60</p></div>
+      <div><h3>Suspensión</h3><p>Amortiguadores, rótulas y alineación.</p><p class="price">a presupuesto</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Cómo trabajamos</h2>
+    <div class="steps">
+      <div><b>1</b><p>Nos escribes por WhatsApp con el modelo y el problema.</p></div>
+      <div><b>2</b><p>Revisamos el auto y te mandamos fotos y presupuesto cerrado.</p></div>
+      <div><b>3</b><p>Solo arreglamos lo que apruebas. Sin sorpresas en la factura.</p></div>
+      <div><b>4</b><p>Te entregamos el auto con las piezas viejas por si quieres verlas.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap" id="cita">
+  <div class="cta">
+    <div><h2 style="margin:0">¿Te suena raro el auto?</h2><p style="color:var(--fog)">Lunes a sábado de 8:00 a 18:00. Aquí iría la dirección real y el mapa.</p></div>
+    <a class="btn" href="#">Escribir por WhatsApp</a>
+  </div>
+</div>
+<footer><div class="wrap" style="margin-top:40px">Ruedamaestra · negocio ficticio de ejemplo · Diseño: <a href="../../">Alejo Web Studio</a></div></footer>
+</body>
+</html>

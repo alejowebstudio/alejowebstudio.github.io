@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Clínica Veterinaria Lunares · Web de ejemplo</title>
+<meta name="description" content="Web de ejemplo de Alejo Web Studio para una clínica veterinaria ficticia.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--mint:#E6F4F1;--teal:#0F766E;--ink:#0B3B36;--coral:#FF7A59;--white:#fff;--muted:#4D6B67}
+*{box-sizing:border-box;margin:0}
+body{font-family:"Nunito Sans",system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+.demo{background:var(--ink);color:#fff;font-size:14px;text-align:center;padding:8px 16px}
+.demo a{color:#FFD3C6}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{display:flex;align-items:center;gap:10px;font-family:Quicksand,sans-serif;font-weight:700;font-size:20px;text-decoration:none}
+.btn{display:inline-block;background:var(--coral);color:#fff;font-weight:700;text-decoration:none;padding:12px 20px;border-radius:999px}
+.btn.ghost{background:transparent;color:var(--teal);border:2px solid var(--teal)}
+.hero{background:var(--mint);border-radius:0 0 48px 48px}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;padding-top:40px;padding-bottom:64px}
+h1{font-family:Quicksand,sans-serif;font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-.5px}
+.hero p{font-size:19px;color:var(--muted);margin:18px 0 26px;max-width:34ch}
+.urg{display:flex;gap:12px;flex-wrap:wrap}
+.paw{width:100%;max-width:360px;justify-self:center}
+section{padding:64px 0}
+h2{font-family:Quicksand,sans-serif;font-size:32px;margin-bottom:24px}
+.serv{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px 36px}
+.serv h3{font-size:19px;margin-bottom:4px;color:var(--teal)}
+.serv p{color:var(--muted)}
+.emer{background:var(--teal);color:#fff;border-radius:32px;padding:36px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.emer h2{margin:0;font-size:28px}
+.emer .btn{background:#fff;color:var(--teal)}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+table{border-collapse:collapse;width:100%}
+td{padding:8px 0;border-bottom:1px solid #D3E6E2}
+td:last-child{text-align:right;font-weight:600}
+.map{background:var(--mint);border-radius:24px;min-height:220px;display:grid;place-items:center;text-align:center;padding:24px;color:var(--muted)}
+footer{background:var(--ink);color:#CFE3DF;padding:28px 0;font-size:15px}
+@media (max-width:760px){.hero .wrap,.info{grid-template-columns:1fr}.paw{max-width:220px;order:-1}}
+</style>
+</head>
+<body>
+<p class="demo">Web de ejemplo hecha por <a href="../../">Alejo Web Studio</a>. La clínica es ficticia.</p>
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <header class="top" style="padding-top:0">
+        <a class="brand" href="#"><svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#0F766E"/><g fill="#fff"><ellipse cx="32" cy="40" rx="11" ry="9"/><circle cx="19" cy="27" r="5"/><circle cx="27" cy="20" r="5"/><circle cx="37" cy="20" r="5"/><circle cx="45" cy="27" r="5"/></g></svg>Veterinaria Lunares</a>
+      </header>
+      <h1>Cuidamos a tu mascota como a la nuestra.</h1>
+      <p>Consultas, vacunas, cirugías y baño en el mismo lugar. Atendemos urgencias las 24 horas.</p>
+      <div class="urg">
+        <a class="btn" href="#contacto">Pedir cita por WhatsApp</a>
+        <a class="btn ghost" href="#horario">Ver horario</a>
+      </div>
+    </div>
+    <svg class="paw" viewBox="0 0 300 300" aria-hidden="true">
+      <circle cx="150" cy="150" r="140" fill="#fff"/>
+      <circle cx="150" cy="150" r="140" fill="none" stroke="#0F766E" stroke-width="4" stroke-dasharray="6 14"/>
+      <g fill="#FF7A59"><ellipse cx="150" cy="182" rx="52" ry="44"/><ellipse cx="88" cy="128" rx="22" ry="28"/><ellipse cx="124" cy="94" rx="22" ry="28"/><ellipse cx="176" cy="94" rx="22" ry="28"/><ellipse cx="212" cy="128" rx="22" ry="28"/></g>
+    </svg>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>Qué hacemos</h2>
+    <div class="serv">
+      <div><h3>Consulta general</h3><p>Revisión completa y diagnóstico, con o sin cita.</p></div>
+      <div><h3>Vacunas y desparasitación</h3><p>Llevamos el calendario de tu mascota y te avisamos de la siguiente dosis.</p></div>
+      <div><h3>Cirugía y esterilización</h3><p>Quirófano equipado y seguimiento después de la operación.</p></div>
+      <div><h3>Baño y peluquería</h3><p>Baño medicado, corte y limpieza de oídos.</p></div>
+      <div><h3>Laboratorio</h3><p>Análisis de sangre y ecografía con resultados el mismo día.</p></div>
+      <div><h3>Farmacia y alimentos</h3><p>Medicamentos y dietas recetadas por el veterinario.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="emer">
+    <h2>¿Es una urgencia? Estamos abiertos ahora.</h2>
+    <a class="btn" href="#contacto">Llamar a urgencias</a>
+  </div>
+</div>
+
+<section id="horario">
+  <div class="wrap info">
+    <div>
+      <h2>Horario</h2>
+      <table>
+        <tr><td>Lunes a viernes</td><td>9:00 – 20:00</td></tr>
+        <tr><td>Sábado</td><td>9:00 – 17:00</td></tr>
+        <tr><td>Domingo</td><td>10:00 – 14:00</td></tr>
+        <tr><td>Urgencias</td><td>24 horas</td></tr>
+      </table>
+    </div>
+    <div id="contacto">
+      <h2>Dónde estamos</h2>
+      <div class="map">Aquí va el mapa de Google con la ubicación real de la clínica, el teléfono y el botón de WhatsApp.</div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">Clínica Veterinaria Lunares · negocio ficticio de ejemplo · Diseño: <a href="../../">Alejo Web Studio</a></div></footer>
+</body>
+</html>
