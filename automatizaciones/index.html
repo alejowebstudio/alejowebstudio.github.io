@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'self'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Automatizaciones para negocios · Alejo Web Studio</title>
+<meta name="description" content="Recordatorios de citas, pedidos y presupuestos automáticos con Google Sheets. Sin cuotas mensuales.">
+<link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+<link rel="canonical" href="https://alejowebstudio.github.io/automatizaciones/">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+.ahero{padding-block:64px 72px}
+.ahero h1{font-size:clamp(40px,5.6vw,68px);font-weight:700;letter-spacing:-.035em;line-height:1.02;max-width:16ch}
+.ahero h1 .serif{color:var(--brand)}
+.ahero .intro{font-size:19px}
+.demo{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;align-items:start}
+.sheet{overflow:hidden;min-width:0}
+.sheet .bar{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);font-weight:600;font-size:15px;background:var(--surface-2)}
+.sheet .bar i{width:14px;height:14px;border-radius:4px;background:var(--ok)}
+.sheet .scroll{overflow-x:auto}
+.sheet table{border-collapse:collapse;width:100%;font-size:14px;min-width:540px}
+.sheet th,.sheet td{padding:11px 14px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+.sheet th{font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.sheet tr:last-child td{border-bottom:0}
+.sheet .ok{color:var(--ok);font-weight:600}
+.outs{display:grid;gap:16px;min-width:0}
+.out{padding:20px 22px}
+.out .lbl{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:10px}
+.out .subj{font-weight:600;margin-bottom:6px}
+.out p{font-size:15.5px}
+.bubble{background:var(--ok-soft);border-radius:14px 14px 14px 4px;padding:12px 14px}
+.note{margin-top:20px;font-size:15px;color:var(--muted);max-width:70ch}
+.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svc{padding:26px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.svc h3{font-size:19px;font-weight:600}
+.svc p{color:var(--muted);font-size:15.5px}
+.svc .pr{margin-top:auto;padding-top:14px;border-top:1px dashed var(--line);font-family:var(--mono);color:var(--brand);font-size:15px}
+.cta{background:#0F1B33;color:#E9EDF6;border-radius:28px;padding:48px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.cta h2{font-size:clamp(28px,3.4vw,40px);font-weight:700;color:#fff}
+.cta p{color:#B7C0D4;margin-top:8px}
+@media (max-width:1020px){.demo{grid-template-columns:1fr}.svcs{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.svcs{grid-template-columns:1fr}.cta{padding:30px 22px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../img/logo.svg" alt="" width="32" height="32">Alejo Web Studio</a>
+    <div class="menu">
+      <a href="../#trabajos">Trabajos</a>
+      <a href="../#precios">Precios</a>
+      <a href="../#proceso">Cómo trabajamos</a>
+      <a href="../automatizaciones/">Automatizaciones</a>
+      <a href="../#preguntas">Preguntas</a>
+      <a class="btn btn-primary btn-sm" href="../#empezar">Pedir maqueta gratis</a>
+      <details class="mnav"><summary aria-label="Abrir menú"><span></span></summary>
+        <nav aria-label="Menú">
+          <a href="../#trabajos">Trabajos</a><a href="../#precios">Precios</a><a href="../#proceso">Cómo trabajamos</a>
+          <a href="../#pago">Forma de pago</a><a href="../automatizaciones/">Automatizaciones</a><a href="../#preguntas">Preguntas</a>
+          <a href="../#empezar"><b>Pedir maqueta gratis</b></a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="wrap ahero">
+  <p class="eyebrow">Automatizaciones</p>
+  <h1>Deja que la hoja de cálculo <span class="serif">trabaje</span> por ti.</h1>
+  <p class="intro">Automatizamos las tareas repetidas de tu negocio con Google Sheets: recordatorios de citas, pedidos y presupuestos. Sin programas nuevos y sin cuotas mensuales.</p>
+</div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Ejemplo</p>
+      <h2 class="h2">Recordatorios de citas, sin hacer nada.</h2>
+      <p class="intro">El negocio apunta sus citas en una hoja de Google. Cada mañana, el sistema avisa a los clientes que tienen cita al día siguiente.</p>
+    </div>
+    <div class="demo">
+      <div class="sheet card">
+        <div class="bar"><i aria-hidden="true"></i>Citas · Clínica de ejemplo</div>
+        <div class="scroll" role="region" aria-label="Hoja de citas de ejemplo" tabindex="0">
+        <table>
+          <thead><tr><th>Fecha</th><th>Hora</th><th>Cliente</th><th>Servicio</th><th>Recordatorio</th></tr></thead>
+          <tbody>
+            <tr><td>20/10</td><td>10:30</td><td>Ana Quispe</td><td>Limpieza dental</td><td class="ok">✓ correo + WhatsApp</td></tr>
+            <tr><td>20/10</td><td>16:00</td><td>Luis Mamani</td><td>Control</td><td class="ok">✓ WhatsApp</td></tr>
+            <tr><td>21/10</td><td>09:00</td><td>Rosa Flores</td><td>Ortodoncia</td><td>mañana</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+      <div class="outs">
+        <div class="out card"><p class="lbl">Correo que recibe la clienta</p><p class="subj">Recordatorio de tu cita en Clínica Ejemplo</p><p>Hola Ana Quispe, te recordamos tu cita de Limpieza dental mañana a las 10:30 en Clínica Ejemplo (Av. Ejemplo 123).</p></div>
+        <div class="out card"><p class="lbl">WhatsApp listo: el negocio pulsa y envía</p><p class="bubble">Hola Luis Mamani, te recordamos tu cita de Control mañana a las 16:00 en Clínica Ejemplo.</p></div>
+      </div>
+    </div>
+    <p class="note">Nombres y datos de ejemplo. El código es abierto y está probado: <a href="recordatorios-citas/">ver el kit de recordatorios</a>.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Servicios</p>
+      <h2 class="h2">Qué podemos automatizar.</h2>
+    </div>
+    <div class="svcs">
+      <div class="svc card"><h3>WhatsApp Business bien configurado</h3><p>Mensaje de bienvenida, aviso fuera de horario, respuestas rápidas a las preguntas de siempre y catálogo de productos.</p><p class="pr">25 USD · pago único</p></div>
+      <div class="svc card"><h3>Recordatorios de citas</h3><p>Aviso automático por correo y mensaje de WhatsApp listo para enviar con un toque. Menos citas perdidas.</p><p class="pr">40 USD · pago único</p></div>
+      <div class="svc card"><h3>Pedidos y reservas a una hoja</h3><p>Un formulario para tus clientes que guarda cada pedido en una hoja y te avisa por correo al momento.</p><p class="pr">40 USD · pago único</p></div>
+      <div class="svc card"><h3>Resumen semanal de ventas</h3><p>Cada lunes recibes por correo cuánto vendiste, qué se vendió más y qué falta reponer.</p><p class="pr">35 USD · pago único</p></div>
+      <div class="svc card"><h3>Presupuestos y facturas en PDF</h3><p>Rellenas una fila con el cliente y los productos, y sale el PDF con tu logo listo para enviar.</p><p class="pr">desde 60 USD · según el caso</p></div>
+    </div>
+    <p class="note">Todo funciona con tu propia cuenta de Google, así que los datos son tuyos. Una cuenta gratuita de Gmail puede enviar hasta 100 correos automáticos al día. El envío automático de WhatsApp necesita la API oficial de WhatsApp, que cobra por mensaje: te lo presupuestamos aparte si lo necesitas.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="cta">
+      <div><h2>¿Qué tarea repites todos los días?</h2><p>Cuéntanosla y te decimos si se puede automatizar y cuánto costaría.</p></div>
+      <a class="btn btn-accent" href="../#empezar">Contarnos tu caso <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div><a class="brand" href="../"><img src="../img/logo.svg" alt="" width="32" height="32">Alejo Web Studio</a><p class="about">Webs y automatizaciones para pequeños negocios de Latinoamérica.</p></div>
+      <div><h4>Servicios</h4><ul><li><a href="../#precios">Webs y precios</a></li><li><a href="../automatizaciones/">Automatizaciones</a></li><li><a href="../#trabajos">Trabajos</a></li></ul></div>
+      <div><h4>Información</h4><ul><li><a href="../#proceso">Cómo trabajamos</a></li><li><a href="../#pago">Forma de pago</a></li><li><a href="../condiciones/">Condiciones</a></li><li><a href="../#preguntas">Preguntas</a></li></ul></div>
+      <div><h4>Contacto</h4><ul><li><a href="../#empezar">alejo.webstudio@gmail.com</a></li><li><a class="social" href="https://www.instagram.com/alejowebstudio/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>Instagram</a></li><!--REDES--></ul></div>
+    </div>
+    <div class="legal"><span>© 2026 Alejo Web Studio · Alejandro</span><span>Web estática, sin cookies ni rastreadores.</span></div>
+  </div>
+</footer>
+</body>
+</html>
