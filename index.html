@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; base-uri 'self'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Alejo Web Studio · Webs para pequeños negocios de Latinoamérica</title>
-<meta name="description" content="Diseñamos webs rápidas y seguras para clínicas, veterinarias, talleres y comercios de Latinoamérica. Primero ves una maqueta gratis; solo pagas si te convence.">
+<meta name="description" content="Webs informativas y dinámicas (catálogo editable, formularios, reservas) para clínicas, veterinarias, talleres y comercios de Latinoamérica. Primero ves una maqueta gratis.">
 <meta name="theme-color" content="#F6F7FA" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0A1120" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="img/logo.svg" type="image/svg+xml">
@@ -143,6 +143,29 @@
 .m-tag{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);font-size:14px;color:var(--ink)}
 .m-note{margin:18px 0 28px;color:var(--muted);font-size:15.5px;max-width:75ch}
 
+
+.anchor{position:relative;top:-90px;display:block}
+.level{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:10px}
+.price .from{font-size:15px;color:var(--muted);align-self:flex-end;margin-bottom:6px}
+.shop{margin-top:20px;padding:30px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;background:var(--surface-2)}
+.shop h3{font-size:22px;font-weight:600;margin-bottom:8px}
+.shop p:not(.level){color:var(--muted);max-width:75ch}
+.funcs{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.func{grid-column:span 2;padding:26px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.func:nth-child(4),.func:nth-child(5){grid-column:span 3}
+.f-n{font-size:14px;color:var(--brand)}
+.func h3{font-size:19px;font-weight:600}
+.func p:not(.f-n):not(.f-ex){color:var(--muted);font-size:15.5px}
+.f-ex{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);font-size:14px;color:var(--ink)}
+.vs{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.vs>div{padding:24px 28px;min-width:0}
+.vs>div+div{border-left:1px solid var(--line);background:var(--brand-soft)}
+.vs-k{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--brand);margin-bottom:8px}
+.vs p:not(.vs-k){color:var(--muted)}
+.vs b{color:var(--ink)}
+.sectors{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;padding-block:0 8px;color:var(--muted);font-size:15px}
+.sectors .chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;color:var(--ink)}
+
 /* Automatizaciones */
 .auto{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:44px}
 .auto ul{list-style:none;margin:0;padding:0;display:grid}
@@ -187,6 +210,8 @@
   .stage{max-width:640px;margin-right:24px}
   .finds,.works{grid-template-columns:1fr 1fr}
   .methods{grid-template-columns:1fr 1fr}
+  .funcs{grid-template-columns:1fr 1fr}.func,.func:nth-child(4),.func:nth-child(5){grid-column:auto}
+  .shop{grid-template-columns:1fr}
   .plans{grid-template-columns:1fr;max-width:560px}
   .plan .for{min-height:0}
   .plan.main{order:-1}
@@ -195,7 +220,8 @@
   .incl{grid-template-columns:1fr 1fr}
 }
 @media (max-width:640px){
-  .finds,.works,.steps,.incl,.methods{grid-template-columns:1fr}
+  .finds,.works,.steps,.incl,.methods,.funcs,.vs{grid-template-columns:1fr}
+  .vs>div+div{border-left:0;border-top:1px solid var(--line)}
   .report{left:-6px;bottom:-70px;width:78%}
   .stage{margin-right:10px;margin-bottom:40px}
   .stage .phone{right:-8px;width:34%}
@@ -214,14 +240,14 @@
     <a class="brand" href="./"><img src="img/logo.svg" alt="" width="32" height="32">Alejo Web Studio</a>
     <div class="menu">
       <a href="#trabajos">Trabajos</a>
-      <a href="#precios">Precios</a>
+      <a href="#servicios">Servicios</a>
       <a href="#proceso">Cómo trabajamos</a>
       <a href="automatizaciones/">Automatizaciones</a>
       <a href="#preguntas">Preguntas</a>
       <a class="btn btn-primary btn-sm" href="#empezar">Pedir maqueta gratis</a>
       <details class="mnav"><summary aria-label="Abrir menú"><span></span></summary>
         <nav aria-label="Menú">
-          <a href="#trabajos">Trabajos</a><a href="#precios">Precios</a><a href="#proceso">Cómo trabajamos</a>
+          <a href="#servicios">Servicios y precios</a><a href="#dinamicas">Funciones dinámicas</a><a href="#trabajos">Trabajos</a><a href="#proceso">Cómo trabajamos</a>
           <a href="#pago">Forma de pago</a><a href="automatizaciones/">Automatizaciones</a><a href="#preguntas">Preguntas</a>
           <a href="#empezar"><b>Pedir maqueta gratis</b></a>
         </nav>
@@ -236,10 +262,10 @@
     <div>
       <p class="eyebrow">Webs para pequeños negocios · Latinoamérica</p>
       <h1 id="titulo">Una web que tus clientes <span class="serif">sí</span> encuentran y entienden.</h1>
-      <p class="lead">Diseñamos webs rápidas y seguras para clínicas, veterinarias, talleres y comercios. Primero te enseñamos cómo quedaría la tuya, gratis. Solo pagas si te convence.</p>
+      <p class="lead">Diseñamos webs rápidas y seguras para clínicas, veterinarias, talleres y comercios: informativas o con catálogo, pedidos y citas que gestionas tú. Primero te enseñamos cómo quedaría la tuya, gratis.</p>
       <div class="actions">
         <a class="btn btn-primary" href="#empezar">Pedir mi maqueta gratis <span class="arr" aria-hidden="true">→</span></a>
-        <a class="btn btn-ghost" href="#trabajos">Ver trabajos</a>
+        <a class="btn btn-ghost" href="#servicios">Ver servicios y precios</a>
       </div>
       <ul class="facts">
         <li>Maqueta en 48 horas</li>
@@ -264,6 +290,7 @@
       </div>
     </div>
   </section>
+  <div class="sectors" aria-label="Sectores"><span>Trabajamos con</span><span class="chip">Clínicas dentales</span><span class="chip">Veterinarias</span><span class="chip">Talleres</span><span class="chip">Restaurantes</span><span class="chip">Laboratorios</span><span class="chip">Estudios jurídicos</span><span class="chip">Tiendas y comercios</span></div>
 </div>
 
 <section class="section" id="revision" aria-labelledby="h-rev">
@@ -281,7 +308,7 @@
       <article class="find card"><p class="was">href="#"</p><h3>Iconos de redes que no llevan a ningún sitio</h3><p>Quien quiere ver tus trabajos o reseñas en Instagram se queda sin encontrarlos.</p><p class="fix"><b>Arreglo:</b> cada enlace probado antes de entregar.</p></article>
       <article class="find card"><p class="was">&lt;title&gt;Home -&lt;/title&gt;</p><h3>Google no sabe qué haces ni dónde</h3><p>Sin título ni texto, la web no aparece cuando alguien busca tu servicio en tu ciudad.</p><p class="fix"><b>Arreglo:</b> título, descripción y datos del negocio pensados para Google.</p></article>
     </div>
-    <div class="cta-line"><a class="btn btn-ghost" href="#empezar">Pedir una revisión gratis de mi web</a><span>Te decimos qué falla, aunque luego no trabajemos juntos.</span></div>
+    <div class="cta-line"><a class="btn btn-ghost" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=alejo.webstudio@gmail.com&amp;su=Revisi%C3%B3n%20gratis%20de%20mi%20web&amp;body=Mi%20web%3A%0ANegocio%3A%0ACiudad%20y%20pa%C3%ADs%3A%0A" target="_blank" rel="noopener">Pedir una revisión gratis de mi web</a><span>Te decimos qué falla, aunque luego no trabajemos juntos.</span></div>
   </div>
 </section>
 
@@ -314,7 +341,7 @@
   <div class="wrap">
     <div class="head">
       <p class="eyebrow">Qué incluye</p>
-      <h2 class="h2" id="h-inc">Todo lo que una web de negocio necesita, y nada que sobre.</h2>
+      <h2 class="h2" id="h-inc">Incluido en todas nuestras webs.</h2>
     </div>
     <div class="incl">
       <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 15.6 7.1 18.2l.9-5.5-4-3.9 5.5-.8z"/></svg></span><h3>Diseño a medida</h3><p>Con tu logo, tus colores y tus fotos. Nada de plantillas que se repiten.</p></div>
@@ -327,41 +354,54 @@
   </div>
 </section>
 
-<section class="section" id="precios" aria-labelledby="h-pre">
+<section class="section" id="servicios" aria-labelledby="h-pre">
+  <span id="precios" class="anchor"></span>
   <div class="wrap">
     <div class="head">
-      <p class="eyebrow">Precios</p>
-      <h2 class="h2" id="h-pre">Precio cerrado, en dólares y sin cuotas escondidas.</h2>
-      <p class="intro">Pago único y el mismo precio para todos los países. El alojamiento de la web es gratis, así que no pagas ninguna mensualidad para que siga en línea.</p>
+      <p class="eyebrow">Servicios y precios</p>
+      <h2 class="h2" id="h-pre">Desde una web sencilla hasta una que trabaja por ti.</h2>
+      <p class="intro">Pago único en dólares, el mismo precio para todos los países y sin mensualidades: el alojamiento es gratis.</p>
       <p class="launch"><span class="mono">Precio de lanzamiento</span> Estamos empezando y queremos nuestras primeras reseñas: estos precios se mantienen para quien nos encargue ahora.</p>
     </div>
     <div class="plans">
       <article class="plan card">
+        <p class="level mono">Nivel 1 · Renovación</p>
         <h3>Renovar tu web</h3>
-        <p class="for">Ya tienes web, pero está caída, vieja o se ve mal en el celular.</p>
+        <p class="for">Ya tienes web, pero está caída, vieja, insegura o se ve mal en el celular.</p>
         <p class="price"><b>80</b><span>USD · pago único</span></p>
         <p class="price-note">40 al empezar + 40 al terminar</p>
         <ul><li>Diseño nuevo desde cero</li><li>Mantenemos tus textos y tu dominio</li><li>Más rápida y sin nada que hackear</li><li>Botón de WhatsApp y mapa</li><li>Dos rondas de cambios</li></ul>
-        <a class="btn btn-ghost" href="#empezar">Pedir maqueta de renovación</a>
+        <a class="btn btn-ghost" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=alejo.webstudio@gmail.com&amp;su=Renovar%20mi%20web%20%2880%20USD%29&amp;body=Negocio%3A%0ACiudad%20y%20pa%C3%ADs%3A%0AWeb%20actual%2C%20Instagram%20o%20ficha%20de%20Google%20Maps%3A%0AWhatsApp%3A%0A" target="_blank" rel="noopener">Pedir maqueta de renovación</a>
       </article>
-      <article class="plan card main">
-        <p class="badge">Recomendado</p>
-        <h3>Web nueva</h3>
-        <p class="for">Tu negocio solo está en Google Maps o en redes sociales.</p>
+      <article class="plan card">
+        <p class="level mono">Nivel 2 · Informativa</p>
+        <h3>Web informativa</h3>
+        <p class="for">Tu negocio solo está en Google Maps o en redes y necesita su propia web.</p>
         <p class="price"><b>100</b><span>USD · pago único</span></p>
         <p class="price-note">50 al empezar + 50 al terminar</p>
         <ul><li>Diseño a medida con tu logo y fotos</li><li>Servicios, precios, horario y mapa</li><li>Botón de WhatsApp y llamada</li><li>Lista para Google, con HTTPS</li><li>Dos rondas de cambios</li></ul>
-        <a class="btn btn-primary" href="#empezar">Pedir maqueta gratis</a>
+        <a class="btn btn-ghost" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=alejo.webstudio@gmail.com&amp;su=Quiero%20una%20web%20informativa%20%28100%20USD%29&amp;body=Negocio%3A%0ACiudad%20y%20pa%C3%ADs%3A%0AWeb%20actual%2C%20Instagram%20o%20ficha%20de%20Google%20Maps%3A%0AWhatsApp%3A%0A" target="_blank" rel="noopener">Pedir maqueta gratis</a>
       </article>
-      <article class="plan card">
-        <h3>Web con citas</h3>
-        <p class="for">Clínicas, peluquerías y talleres que trabajan con cita.</p>
-        <p class="price"><b>130</b><span>USD · pago único</span></p>
-        <p class="price-note">65 al empezar + 65 al terminar</p>
-        <ul><li>Todo lo de la web nueva</li><li>Reservas en tu Google Calendar</li><li>Recordatorio al cliente el día antes</li><li>Te enseñamos a usarlo</li><li>Dos rondas de cambios</li></ul>
-        <a class="btn btn-ghost" href="#empezar">Pedir maqueta con citas</a>
+      <article class="plan card main">
+        <p class="badge">Para ampliar el servicio</p>
+        <p class="level mono">Nivel 3 · Dinámica</p>
+        <h3>Web con funciones dinámicas</h3>
+        <p class="for">Todo lo anterior, más funciones que te ahorran trabajo cada día.</p>
+        <p class="price"><span class="from">desde</span><b>130</b><span>USD · pago único</span></p>
+        <p class="price-note">Incluye una función; cada función extra, desde 30 USD</p>
+        <ul><li>Catálogo de productos o servicios que editas tú</li><li>Formularios que te envían solicitudes</li><li>Reservas y citas en tu Google Calendar</li><li>Panel sencillo para ver pedidos y citas</li><li>Integraciones con tus herramientas</li></ul>
+        <a class="btn btn-primary" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=alejo.webstudio@gmail.com&amp;su=Quiero%20una%20web%20con%20funciones%20din%C3%A1micas&amp;body=Negocio%3A%0ACiudad%20y%20pa%C3%ADs%3A%0AWeb%20actual%2C%20Instagram%20o%20ficha%20de%20Google%20Maps%3A%0AWhatsApp%3A%0AQu%C3%A9%20funci%C3%B3n%20necesito%20%28cat%C3%A1logo%2C%20formulario%2C%20citas%2C%20panel...%29%3A%0A" target="_blank" rel="noopener">Contarnos qué necesitas</a>
       </article>
     </div>
+    <article class="shop card">
+      <div>
+        <p class="level mono">Nivel 4 · A medida</p>
+        <h3>Tienda online o aplicación web</h3>
+        <p>Productos, carrito, pagos, pedidos, usuarios o inventario. Es un proyecto más grande, con más pruebas y más responsabilidad en seguridad y mantenimiento, así que solo lo proponemos cuando hay una necesidad clara. Te damos presupuesto cerrado antes de empezar.</p>
+      </div>
+      <a class="btn btn-ghost" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=alejo.webstudio@gmail.com&amp;su=Presupuesto%20de%20tienda%20online%20o%20aplicaci%C3%B3n%20web&amp;body=Negocio%3A%0ACiudad%20y%20pa%C3%ADs%3A%0AWeb%20actual%2C%20Instagram%20o%20ficha%20de%20Google%20Maps%3A%0AWhatsApp%3A%0AQu%C3%A9%20quiero%20vender%20o%20gestionar%3A%0ACu%C3%A1ntos%20productos%20aproximadamente%3A%0AC%C3%B3mo%20cobro%20hoy%20a%20mis%20clientes%3A%0A" target="_blank" rel="noopener">Pedir presupuesto</a>
+    </article>
+    <p class="m-note">Los botones abren un correo ya escrito en Gmail. ¿Usas otro correo? Escríbenos a <b>alejo.webstudio@gmail.com</b> o por <a href="https://www.instagram.com/alejowebstudio/" rel="noopener">Instagram</a>.</p>
 
     <div class="extras-wrap">
       <div>
@@ -379,6 +419,27 @@
           </tbody>
         </table>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="dinamicas" aria-labelledby="h-din">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Funciones dinámicas</p>
+      <h2 class="h2" id="h-din">Tu web, conectada a cómo trabajas.</h2>
+      <p class="intro">Usamos herramientas que ya conoces, como Google Sheets, Gmail y Google Calendar, para que puedas actualizar y gestionar tu web sin tocar código y sin pagar programas mensuales.</p>
+    </div>
+    <div class="funcs">
+      <div class="func card"><p class="f-n mono">01</p><h3>Catálogo editable</h3><p>Productos, menú o servicios con precio y foto. Cambias una fila en una hoja de Google y la web se actualiza sola.</p><p class="f-ex">Ejemplo: <a href="demos/restaurante/">menú del día de Fonda La Comadre</a></p></div>
+      <div class="func card"><p class="f-n mono">02</p><h3>Formularios de solicitud</h3><p>Pedidos, presupuestos o inscripciones que llegan a tu correo y se guardan ordenados en una hoja.</p><p class="f-ex">Ideal para talleres, laboratorios y estudios</p></div>
+      <div class="func card"><p class="f-n mono">03</p><h3>Reservas y citas</h3><p>El cliente elige día y hora libres, la cita entra en tu Google Calendar y le llega un recordatorio el día antes.</p><p class="f-ex">Ver <a href="automatizaciones/recordatorios-citas/">kit de recordatorios</a></p></div>
+      <div class="func card"><p class="f-n mono">04</p><h3>Panel de administración</h3><p>Una hoja con tus pedidos, citas y clientes, con filtros y totales. Sin aprender un programa nuevo.</p><p class="f-ex">Funciona en el celular con la app de Sheets</p></div>
+      <div class="func card"><p class="f-n mono">05</p><h3>Integraciones</h3><p>WhatsApp, Google Maps, redes sociales, botones de pago o tu correo. Lo conectamos con lo que ya usas.</p><p class="f-ex">Te decimos antes si algo tiene coste extra</p></div>
+    </div>
+    <div class="vs">
+      <div><p class="mono vs-k">Estático</p><p><b>Un catálogo fijo</b> puede ser una web estática: es rápida, segura y barata. Si cambias precios pocas veces, nos escribes y lo cambiamos.</p></div>
+      <div><p class="mono vs-k">Dinámico</p><p><b>Si quieres actualizarlo tú</b>, sin tocar código, lo conectamos a una hoja de Google o a un gestor de contenidos. Te recomendamos lo más sencillo que resuelva tu caso.</p></div>
     </div>
   </div>
 </section>
@@ -499,6 +560,8 @@
       <details><summary>¿Y si después quiero cambiar algo?</summary><p>Las dos rondas de cambios están incluidas. Una vez entregada y aprobada la web, cada cambio pequeño cuesta 5 USD, o puedes contratar el mantenimiento de 10 USD al mes.</p></details>
       <details><summary>¿Cómo pago desde mi país?</summary><p>Con PayPal (cuenta o tarjeta), con Payoneer (tarjeta o transferencia, según el país) o con Binance Pay en USDT. Tú eliges; te enviamos los datos junto al resumen del encargo.</p></details>
       <details><summary>¿El precio cambia según el país?</summary><p>No. Los precios son los mismos para todos los países de Latinoamérica y están en dólares.</p></details>
+      <details><summary>¿Qué diferencia hay entre una web informativa y una dinámica?</summary><p>La informativa muestra tu negocio: servicios, precios, horario y contacto. La dinámica además hace cosas: recibe pedidos o citas, o te deja cambiar el catálogo tú mismo desde una hoja de Google. Si no lo tienes claro, te recomendamos la más sencilla que resuelva tu caso.</p></details>
+      <details><summary>¿Hacen tiendas online?</summary><p>Sí, a medida y con presupuesto cerrado. Antes te preguntamos qué vendes y cómo cobras, porque muchas veces un catálogo con pedidos por WhatsApp es más barato y funciona igual de bien.</p></details>
       <details><summary>¿Trabajan con mi país?</summary><p>Sí. Trabajamos a distancia con negocios de toda Latinoamérica, por correo y WhatsApp.</p></details>
     </div>
   </div>
@@ -510,11 +573,11 @@
       <div>
         <p class="eyebrow">Empezar</p>
         <h2 id="h-emp">¿Quieres ver cómo quedaría la tuya?</h2>
-        <p class="intro">Escríbenos con estos datos y en 48 horas te enviamos la maqueta, gratis y sin compromiso:</p>
+        <p class="intro">Escríbenos con estos datos y en 48 horas te enviamos la maqueta (o el presupuesto, si es una tienda o una web dinámica), gratis y sin compromiso:</p>
         <ol>
           <li>Nombre del negocio, ciudad y país</li>
           <li>Tu web actual, Instagram o ficha de Google Maps</li>
-          <li>El plan que te interesa (si ya lo sabes)</li>
+          <li>El servicio que te interesa (si ya lo sabes)</li>
           <li>Un WhatsApp de contacto</li>
         </ol>
       </div>
@@ -526,7 +589,7 @@
           <a class="btn btn-ghost" href="mailto:alejo.webstudio@gmail.com?subject=Quiero%20ver%20la%20maqueta%20de%20mi%20web&amp;body=Negocio%3A%0ACiudad%20y%20pa%C3%ADs%3A%0AWeb%20o%20Instagram%3A%0APlan%3A%0AWhatsApp%3A%0A">Abrir mi app de correo</a>
         </div>
         <p class="small">¿Usas otro correo? Copia la dirección de arriba. Respondemos en un día laborable.</p>
-        <p class="small">También puedes escribirnos por Instagram: <a href="https://www.instagram.com/alejowebstudio/" rel="noopener" style="color:#fff">@alejowebstudio</a></p>
+        <p class="small">También estamos en <a href="https://www.instagram.com/alejowebstudio/" rel="noopener" style="color:#fff">Instagram</a> y <a href="https://www.facebook.com/profile.php?id=61595112646783" rel="noopener" style="color:#fff">Facebook</a>.</p>
       </div>
     </div>
   </div>
@@ -537,9 +600,9 @@
   <div class="wrap">
     <div class="cols">
       <div><a class="brand" href="./"><img src="img/logo.svg" alt="" width="32" height="32">Alejo Web Studio</a><p class="about">Webs y automatizaciones para pequeños negocios de Latinoamérica.</p></div>
-      <div><h4>Servicios</h4><ul><li><a href="#precios">Webs y precios</a></li><li><a href="automatizaciones/">Automatizaciones</a></li><li><a href="#trabajos">Trabajos</a></li></ul></div>
+      <div><h4>Servicios</h4><ul><li><a href="#servicios">Webs y precios</a></li><li><a href="#dinamicas">Funciones dinámicas</a></li><li><a href="automatizaciones/">Automatizaciones</a></li><li><a href="#trabajos">Trabajos</a></li></ul></div>
       <div><h4>Información</h4><ul><li><a href="#proceso">Cómo trabajamos</a></li><li><a href="#pago">Forma de pago</a></li><li><a href="condiciones/">Condiciones</a></li><li><a href="#preguntas">Preguntas</a></li></ul></div>
-      <div><h4>Contacto</h4><ul><li><a href="#empezar">alejo.webstudio@gmail.com</a></li><li><a class="social" href="https://www.instagram.com/alejowebstudio/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>Instagram</a></li><!--REDES--></ul></div>
+      <div><h4>Contacto</h4><ul><li><a href="#empezar">alejo.webstudio@gmail.com</a></li><li><a class="social" href="https://www.instagram.com/alejowebstudio/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>Instagram</a></li><li><a class="social" href="https://www.facebook.com/profile.php?id=61595112646783" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M13.5 21v-7h2.3l.4-2.8h-2.7V9.5c0-.8.3-1.3 1.4-1.3h1.4V5.7c-.3 0-1.1-.1-2-.1-2 0-3.3 1.2-3.3 3.4v2.2H8.7V14H11v7"/></svg>Facebook</a></li><!--REDES--></ul></div>
     </div>
     <div class="legal"><span>© 2026 Alejo Web Studio · Alejandro</span><span>Web estática, sin cookies ni rastreadores.</span></div>
   </div>

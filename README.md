@@ -1,8 +1,8 @@
 # Alejo Web Studio
 
-**Webs rápidas y seguras para pequeños negocios de Latinoamérica.** Clínicas, veterinarias, talleres, restaurantes y comercios.
+**Webs rápidas y seguras para pequeños negocios de Latinoamérica**: informativas o con funciones dinámicas (catálogo editable, formularios, reservas y citas). Clínicas, veterinarias, talleres, restaurantes y comercios.
 
-🌐 **[alejowebstudio.github.io](https://alejowebstudio.github.io)** · ✉️ alejo.webstudio@gmail.com · 📷 [Instagram](https://www.instagram.com/alejowebstudio/)
+🌐 **[alejowebstudio.github.io](https://alejowebstudio.github.io)** · ✉️ alejo.webstudio@gmail.com · 📷 [Instagram](https://www.instagram.com/alejowebstudio/) · 👍 [Facebook](https://www.facebook.com/profile.php?id=61595112646783)
 
 ---
 
@@ -15,11 +15,12 @@
 
 ## Precios (USD, pago único, iguales para todos los países)
 
-| Plan | Precio |
+| Servicio | Precio |
 |---|---|
 | Renovar tu web | 80 |
-| Web nueva | 100 |
-| Web con citas | 130 |
+| Web informativa | 100 |
+| Web con funciones dinámicas | desde 130 |
+| Tienda online o aplicación web | presupuesto a medida |
 
 Pago con PayPal, Payoneer o Binance Pay (USDT). Condiciones completas: [alejowebstudio.github.io/condiciones](https://alejowebstudio.github.io/condiciones/).
 
