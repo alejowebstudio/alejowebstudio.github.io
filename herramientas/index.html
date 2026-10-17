@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Herramientas gratis para negocios · Alejo Web Studio</title>
+<meta name="description" content="Crea tu enlace y QR de WhatsApp, mira cómo te ve Google y haz el test de tu web. Gratis y sin registro.">
+<link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+<link rel="canonical" href="https://alejowebstudio.github.io/herramientas/">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+.thero{padding-block:64px 40px}
+.thero h1{font-size:clamp(40px,5.6vw,68px);font-weight:700;letter-spacing:-.035em;line-height:1.02;max-width:17ch}
+.thero h1 .serif{color:var(--brand)}
+.thero .intro{font-size:19px}
+.jump{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.jump a{display:flex;gap:10px;align-items:center;text-decoration:none;color:var(--ink);border:1px solid var(--line);background:var(--surface);padding:10px 16px;border-radius:12px;font-weight:500}
+.jump a span{font-family:var(--mono);font-size:12px;color:var(--brand)}
+.jump a:hover{border-color:var(--brand)}
+.tool{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.tool .card{padding:28px;min-width:0}
+.f{display:grid;gap:6px;margin-bottom:16px}
+.f label,.f .l{font-weight:600;font-size:15px}
+.f input,.f select,.f textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:11px 14px;width:100%;min-width:0}
+.f textarea{min-height:96px;resize:vertical}
+.row2{display:grid;grid-template-columns:150px 1fr;gap:10px}
+.hint{font-size:13.5px;color:var(--muted)}
+.cnt{font-family:var(--mono);font-size:12.5px}
+.cnt.ok{color:var(--ok)}.cnt.bad{color:var(--bad)}
+.out{display:grid;gap:14px;justify-items:start}
+.linkbox{display:flex;gap:8px;width:100%}
+.linkbox input{flex:1;min-width:0;font-family:var(--mono);font-size:13px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:10px;color:var(--ink)}
+.qrwrap{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;place-items:center}
+.qrwrap canvas{width:200px;height:200px;image-rendering:pixelated}
+.qrcap{font-size:13px;color:var(--muted);text-align:center;max-width:200px}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.serp{background:#fff;color:#202124;border-radius:16px;padding:22px;border:1px solid var(--line);font-family:Arial,Helvetica,sans-serif;overflow:hidden}
+.serp .site{display:flex;gap:10px;align-items:center;margin-bottom:6px}
+.serp .fav{width:28px;height:28px;border-radius:50%;background:#EEF1F7;display:grid;place-items:center;font-size:13px;font-weight:700;color:#3157D5}
+.serp .nm{font-size:14px;line-height:1.2}
+.serp .url{font-size:12px;color:#4d5156}
+.serp .tt{font-size:20px;color:#1a0dab;line-height:1.3;margin:4px 0;overflow-wrap:anywhere}
+.serp .ds{font-size:14px;color:#4d5156;line-height:1.55;overflow-wrap:anywhere}
+.serp.mob{max-width:380px}
+.tips{margin-top:14px;display:grid;gap:8px;padding:0;list-style:none;font-size:14.5px}
+.tips li{padding-left:24px;position:relative;color:var(--muted)}
+.tips li::before{content:"";position:absolute;left:0;top:6px;width:12px;height:12px;border-radius:50%;background:var(--ok)}
+.tips li.no::before{background:var(--bad)}
+.qs{display:grid;gap:10px}
+.qi{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.qi:last-child{border-bottom:0}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{font:inherit;font-size:14px;border:0;background:var(--surface);color:var(--ink);padding:7px 12px;cursor:pointer}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--brand);color:var(--on-brand)}
+.score{display:flex;align-items:center;gap:18px}
+.ring{--v:0;width:110px;height:110px;border-radius:50%;background:conic-gradient(var(--c,var(--brand)) calc(var(--v)*1%),var(--surface-2) 0);display:grid;place-items:center;flex:none}
+.ring span{width:84px;height:84px;border-radius:50%;background:var(--surface);display:grid;place-items:center;font-size:28px;font-weight:700;letter-spacing:-.03em}
+.verdict h3{font-size:22px}
+.verdict p{color:var(--muted)}
+.fixes{margin:18px 0;padding-left:20px;display:grid;gap:6px}
+.planrec{background:var(--brand-soft);border-radius:14px;padding:16px 18px;margin-bottom:16px}
+.planrec b{display:block;font-size:18px}
+.empty-r{color:var(--muted)}
+@media (max-width:900px){.tool{grid-template-columns:1fr}}
+@media (max-width:520px){.row2{grid-template-columns:1fr}.qi{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../img/logo.svg" alt="" width="32" height="32">Alejo Web Studio</a>
+    <div class="menu">
+      <a href="../#trabajos">Trabajos</a>
+      <a href="../#servicios">Servicios</a>
+      <a href="../#proceso">Cómo trabajamos</a>
+      <a href="../automatizaciones/">Automatizaciones</a>
+      <a href="../herramientas/">Herramientas</a>
+      <a class="btn btn-primary btn-sm" href="../#empezar">Pedir maqueta gratis</a>
+      <details class="mnav"><summary aria-label="Abrir menú"><span></span></summary>
+        <nav aria-label="Menú">
+          <a href="../#servicios">Servicios y precios</a><a href="../#dinamicas">Funciones dinámicas</a><a href="../#trabajos">Trabajos</a><a href="../#proceso">Cómo trabajamos</a>
+          <a href="../#pago">Forma de pago</a><a href="../automatizaciones/">Automatizaciones</a><a href="../herramientas/">Herramientas gratis</a><a href="../#preguntas">Preguntas</a>
+          <a href="../#empezar"><b>Pedir maqueta gratis</b></a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="wrap thero">
+  <p class="eyebrow">Herramientas gratis</p>
+  <h1>Herramientas <span class="serif">gratis</span> para tu negocio.</h1>
+  <p class="intro">Úsalas sin registrarte. Todo funciona en tu navegador: no guardamos ni enviamos nada de lo que escribes.</p>
+  <nav class="jump" aria-label="Herramientas"><a href="#whatsapp"><span>01</span>Enlace y QR de WhatsApp</a><a href="#google"><span>02</span>Cómo te ve Google</a><a href="#test"><span>03</span>Test de tu web</a></nav>
+</div>
+
+<section class="section" id="whatsapp">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">01 · WhatsApp</p><h2 class="h2">Crea tu enlace de WhatsApp y un QR para imprimir.</h2><p class="intro">Ponlo en tu Instagram, en tu ficha de Google o pega el QR en el mostrador: el cliente lo escanea y te escribe con el mensaje ya preparado.</p></div>
+    <div class="tool">
+      <div class="card">
+        <div class="f"><span class="l">Número de WhatsApp</span><div class="row2"><select id="wcc" aria-label="Código de país"></select><input id="wnum" inputmode="tel" placeholder="Ej.: 987 654 321" aria-label="Número"></div><span class="hint">Sin el 0 inicial ni el código de país.</span></div>
+        <div class="f"><label for="wmsg">Mensaje que te enviarán (opcional)</label><textarea id="wmsg">Hola, vi su página y quiero más información.</textarea></div>
+      </div>
+      <div class="card out">
+        <div class="linkbox"><input id="wlink" readonly aria-label="Tu enlace"><button class="btn btn-ghost btn-sm" id="wcopy" type="button">Copiar</button></div>
+        <div class="qrwrap"><canvas id="wqr" width="200" height="200" aria-label="Código QR"></canvas></div>
+        <p class="qrcap" id="wcap">Escribe tu número para generar el QR.</p>
+        <div class="btns"><a class="btn btn-primary btn-sm" id="wdl" download="whatsapp-qr.png" href="#" aria-disabled="true">Descargar QR</a><a class="btn btn-ghost btn-sm" id="wtry" href="#" target="_blank" rel="noopener">Probar enlace</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="google">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">02 · Google</p><h2 class="h2">Mira cómo aparece tu web en los resultados.</h2><p class="intro">El título y la descripción son lo primero que lee un cliente al buscarte. Escríbelos aquí y comprueba si se cortan.</p></div>
+    <div class="tool">
+      <div class="card">
+        <div class="f"><label for="gt">Título de la página</label><input id="gt" value="Clínica Dental Sonrisas | Dentista en Arequipa"><span class="cnt" id="gtc"></span></div>
+        <div class="f"><label for="gd">Descripción</label><textarea id="gd">Limpiezas, ortodoncia e implantes en el centro de Arequipa. Pide tu cita por WhatsApp y te atendemos esta semana.</textarea><span class="cnt" id="gdc"></span></div>
+        <div class="f"><label for="gu">Dirección de la web</label><input id="gu" value="clinicasonrisas.com"></div>
+      </div>
+      <div class="card">
+        <div class="serp" id="serp" aria-live="polite"><div class="site"><span class="fav" id="sf">C</span><div><div class="nm" id="sn"></div><div class="url" id="su"></div></div></div><div class="tt" id="st"></div><div class="ds" id="sd"></div></div>
+        <ul class="tips" id="gtips"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="test">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">03 · Test</p><h2 class="h2">¿Tu web te trae clientes o te los quita?</h2><p class="intro">Ocho preguntas rápidas. Abre tu web en el celular y responde con sinceridad.</p></div>
+    <div class="tool">
+      <div class="card"><div class="qs" id="qs"></div></div>
+      <div class="card" id="res" aria-live="polite"><p class="empty-r">Responde las preguntas y aquí verás tu puntuación, qué arreglar primero y qué te conviene.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div><a class="brand" href="../"><img src="../img/logo.svg" alt="" width="32" height="32">Alejo Web Studio</a><p class="about">Webs y automatizaciones para pequeños negocios de Latinoamérica.</p></div>
+      <div><h4>Servicios</h4><ul><li><a href="../#servicios">Webs y precios</a></li><li><a href="../#dinamicas">Funciones dinámicas</a></li><li><a href="../automatizaciones/">Automatizaciones</a></li><li><a href="../#trabajos">Trabajos</a></li><li><a href="../herramientas/">Herramientas gratis</a></li></ul></div>
+      <div><h4>Información</h4><ul><li><a href="../#proceso">Cómo trabajamos</a></li><li><a href="../#pago">Forma de pago</a></li><li><a href="../condiciones/">Condiciones</a></li><li><a href="../#preguntas">Preguntas</a></li></ul></div>
+      <div><h4>Contacto</h4><ul><li><a href="../#empezar">alejo.webstudio@gmail.com</a></li><li><a class="social" href="https://www.instagram.com/alejowebstudio/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>Instagram</a></li><li><a class="social" href="https://www.facebook.com/profile.php?id=61595112646783" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M13.5 21v-7h2.3l.4-2.8h-2.7V9.5c0-.8.3-1.3 1.4-1.3h1.4V5.7c-.3 0-1.1-.1-2-.1-2 0-3.3 1.2-3.3 3.4v2.2H8.7V14H11v7"/></svg>Facebook</a></li><!--REDES--></ul></div>
+    </div>
+    <div class="legal"><span>© 2026 Alejo Web Studio · Alejandro</span><span>Web estática, sin cookies ni rastreadores.</span></div>
+  </div>
+</footer>
+<script src="../assets/js/qrcode.js"></script>
+<script src="herramientas.js"></script>
+</body>
+</html>

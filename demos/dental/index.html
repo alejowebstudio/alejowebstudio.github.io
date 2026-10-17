@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Clínica Dental Albor · Web de ejemplo</title>
+<meta name="description" content="Web de ejemplo de Alejo Web Studio: clínica dental ficticia con reserva de citas.">
+<link rel="icon" href="../../img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+:root{--bg:#F7FBFC;--ink:#0C2A36;--muted:#557380;--brand:#0E8AA6;--brand-d:#0B6F86;--soft:#E3F3F7;--line:#D5E7EC;--white:#fff;--sun:#FFC857;--ok:#1C8A5A}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{font-family:Manrope,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:17px}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.demo{background:var(--ink);color:#fff;font-size:14px;text-align:center;padding:8px 16px}
+.demo a{color:var(--sun)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;text-decoration:none;letter-spacing:-.02em}
+.brand svg{width:34px;height:34px}
+.top nav{display:flex;gap:22px;font-weight:600;font-size:15px}
+.top nav a{text-decoration:none;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--brand);color:#fff;font-weight:700;text-decoration:none;padding:13px 22px;border-radius:14px;border:0}
+.btn:hover{background:var(--brand-d)}
+.btn.ghost{background:var(--white);color:var(--ink);border:1.5px solid var(--line)}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;padding:40px 0 80px}
+h1{font-size:clamp(38px,5.4vw,64px);line-height:1.02;letter-spacing:-.04em;font-weight:800}
+h1 em{font-style:normal;color:var(--brand)}
+.hero p{font-size:19px;color:var(--muted);margin:20px 0 28px;max-width:40ch}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+.trust{display:flex;gap:24px;flex-wrap:wrap;margin-top:32px;font-size:14px;color:var(--muted)}
+.trust b{display:block;font-size:24px;color:var(--ink);letter-spacing:-.03em}
+.art{position:relative;aspect-ratio:1;max-width:460px;justify-self:center;width:100%}
+.art .blob{position:absolute;inset:0;border-radius:42% 58% 55% 45%/48% 42% 58% 52%;background:linear-gradient(140deg,var(--soft),#C9ECF4)}
+.art svg{position:absolute;inset:14%}
+.art .chip{position:absolute;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:14px;font-weight:600;box-shadow:0 14px 30px -18px rgba(12,42,54,.5)}
+.art .c1{left:-4%;top:16%}.art .c2{right:-2%;bottom:14%}
+.art .chip span{color:var(--ok)}
+section{padding:80px 0}
+.alt{background:var(--white);border-block:1px solid var(--line)}
+h2{font-size:clamp(30px,3.8vw,44px);letter-spacing:-.03em;line-height:1.08;font-weight:800;margin-bottom:12px}
+.sub{color:var(--muted);max-width:60ch;margin-bottom:36px}
+.treat{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.t{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:8px}
+.t .ic{width:44px;height:44px;border-radius:12px;background:var(--soft);display:grid;place-items:center;color:var(--brand);font-weight:800}
+.t h3{font-size:19px}
+.t p{color:var(--muted);font-size:15.5px}
+.t .pr{margin-top:auto;font-weight:700;font-size:15px;padding-top:10px}
+.t .pr span{color:var(--muted);font-weight:500}
+/* Reserva */
+.book{display:grid;grid-template-columns:1fr 1.25fr;gap:28px;align-items:start}
+.book .info li{margin:8px 0;color:var(--muted)}
+.panel{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 30px 60px -40px rgba(12,42,54,.45)}
+.steps{display:flex;gap:8px;margin-bottom:22px}
+.steps span{flex:1;height:5px;border-radius:9px;background:var(--line)}
+.steps span.on{background:var(--brand)}
+.lbl{font-weight:700;margin:18px 0 10px;font-size:15px}
+.lbl:first-of-type{margin-top:0}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:1.5px solid var(--line);background:var(--bg);border-radius:12px;padding:9px 14px;font-weight:600;font-size:15px;color:var(--ink)}
+.opt[aria-pressed="true"]{border-color:var(--brand);background:var(--soft);color:var(--brand-d)}
+.opt:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.day{border:1.5px solid var(--line);background:var(--bg);border-radius:12px;padding:8px 0;text-align:center;font-size:13px;color:var(--muted)}
+.day b{display:block;font-size:18px;color:var(--ink)}
+.day[aria-pressed="true"]{border-color:var(--brand);background:var(--soft)}
+.day:disabled{opacity:.35;cursor:not-allowed}
+.field{display:grid;gap:6px;margin-top:12px}
+.field input{font:inherit;border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;background:var(--bg);color:var(--ink)}
+.sum{margin-top:22px;padding:16px;border-radius:14px;background:var(--bg);border:1px dashed var(--line);font-size:15px}
+.sum b{color:var(--brand-d)}
+.go{margin-top:16px;width:100%}
+.go:disabled{background:var(--line);color:var(--muted);cursor:not-allowed}
+.done{text-align:center;padding:20px 0}
+.done .ok{width:64px;height:64px;border-radius:50%;background:#DDF3E8;color:var(--ok);display:grid;place-items:center;margin:0 auto 14px;font-size:30px;font-weight:800}
+.done p{color:var(--muted);margin-top:8px}
+.note{font-size:13px;color:var(--muted);margin-top:14px}
+.faq{max-width:780px}
+.faq details{border-bottom:1px solid var(--line);padding:18px 0}
+.faq summary{font-weight:700;cursor:pointer}
+.faq p{color:var(--muted);margin-top:8px}
+footer{background:var(--ink);color:#BFD6DE;padding:48px 0;font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer b{color:#fff}
+.wa{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 12px 26px -10px rgba(0,0,0,.4)}
+.wa svg{width:30px;height:30px}
+@media (max-width:900px){.hero,.book{grid-template-columns:1fr}.treat{grid-template-columns:1fr 1fr}.top nav{display:none}.art{max-width:340px}}
+@media (max-width:560px){.treat{grid-template-columns:1fr}.panel{padding:20px}.days{gap:4px}.day b{font-size:16px}}
+</style>
+</head>
+<body>
+<p class="demo">Web de ejemplo hecha por <a href="../../">Alejo Web Studio</a>. La clínica es ficticia; la reserva funciona en modo demostración.</p>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#0E8AA6"/><path d="M13 12c3-2 5 0 7 0s4-2 7 0c3 2 2 7 0 10-1 2-1 7-3 7s-2-5-4-5-2 5-4 5-2-5-3-7c-2-3-3-8 0-10z" fill="#fff"/></svg>Dental Albor</a>
+    <nav><a href="#tratamientos">Tratamientos</a><a href="#reserva">Pedir cita</a><a href="#preguntas">Preguntas</a></nav>
+    <a class="btn" href="#reserva">Reservar cita</a>
+  </header>
+  <section class="hero" style="padding-top:40px">
+    <div>
+      <h1>Tu sonrisa, en manos <em>tranquilas</em>.</h1>
+      <p>Odontología general, ortodoncia e implantes en el centro de la ciudad. Reserva tu cita en 30 segundos, sin llamadas.</p>
+      <div class="acts"><a class="btn" href="#reserva">Reservar cita online</a><a class="btn ghost" href="#tratamientos">Ver tratamientos y precios</a></div>
+      <div class="trust"><div><b>12 años</b>de experiencia</div><div><b>4</b>especialistas</div><div><b>Lun-Sáb</b>9:00 a 19:00</div></div>
+    </div>
+    <div class="art" aria-hidden="true">
+      <div class="blob"></div>
+      <svg viewBox="0 0 200 200"><path d="M60 40c18-12 30 0 40 0s22-12 40 0c18 12 12 42 0 60-6 12-6 50-18 50s-12-34-22-34-10 34-22 34-12-38-18-50C48 82 42 52 60 40z" fill="#fff" stroke="#0E8AA6" stroke-width="5"/><path d="M78 62c6-4 12-2 16 0" stroke="#C9ECF4" stroke-width="8" stroke-linecap="round" fill="none"/></svg>
+      <div class="chip c1"><span>●</span> Cita confirmada · Mañana 10:30</div>
+      <div class="chip c2">Recordatorio enviado ✓</div>
+    </div>
+  </section>
+</div>
+
+<section class="alt" id="tratamientos">
+  <div class="wrap">
+    <h2>Tratamientos</h2>
+    <p class="sub">Precios orientativos. En la primera visita te damos un presupuesto cerrado por escrito.</p>
+    <div class="treat">
+      <article class="t"><span class="ic">01</span><h3>Limpieza dental</h3><p>Eliminamos sarro y manchas y revisamos encías.</p><p class="pr">desde 25 USD <span>· 40 min</span></p></article>
+      <article class="t"><span class="ic">02</span><h3>Blanqueamiento</h3><p>En consulta, con protección de encías y resultado en una sesión.</p><p class="pr">desde 120 USD <span>· 90 min</span></p></article>
+      <article class="t"><span class="ic">03</span><h3>Ortodoncia</h3><p>Brackets metálicos, estéticos o alineadores transparentes.</p><p class="pr">valoración gratis <span>· 30 min</span></p></article>
+      <article class="t"><span class="ic">04</span><h3>Implantes</h3><p>Planificación digital y seguimiento hasta la corona final.</p><p class="pr">valoración gratis <span>· 30 min</span></p></article>
+      <article class="t"><span class="ic">05</span><h3>Endodoncia</h3><p>Tratamiento de conducto con anestesia y control posterior.</p><p class="pr">desde 80 USD <span>· 60 min</span></p></article>
+      <article class="t"><span class="ic">06</span><h3>Odontopediatría</h3><p>Revisiones para niños en un ambiente tranquilo y sin prisas.</p><p class="pr">desde 20 USD <span>· 30 min</span></p></article>
+    </div>
+  </div>
+</section>
+
+<section id="reserva">
+  <div class="wrap book">
+    <div class="info">
+      <h2>Reserva tu cita</h2>
+      <p class="sub" style="margin-bottom:16px">Elige tratamiento, día y hora. Solo ves los huecos libres.</p>
+      <ul>
+        <li>La cita entra directamente en la agenda de la clínica.</li>
+        <li>El día antes te llega un recordatorio.</li>
+        <li>¿No puedes ir? Cancela desde el mismo recordatorio.</li>
+      </ul>
+    </div>
+    <div class="panel" id="booker">
+      <div class="steps" aria-hidden="true"><span class="on" id="s1"></span><span id="s2"></span><span id="s3"></span></div>
+      <div id="form">
+        <p class="lbl">1. Tratamiento</p>
+        <div class="opts" id="treatments"></div>
+        <p class="lbl">2. Día</p>
+        <div class="days" id="days"></div>
+        <p class="lbl">3. Hora</p>
+        <div class="opts" id="hours"><span class="note" style="margin:0">Elige primero un día.</span></div>
+        <label class="field"><span class="lbl" style="margin:12px 0 0">4. Tu nombre</span><input id="name" autocomplete="name" placeholder="Nombre y apellido"></label>
+        <div class="sum" id="sum">Completa los pasos para ver el resumen.</div>
+        <button class="btn go" id="go" disabled>Confirmar cita</button>
+        <p class="note">Modo demostración: no se guarda ningún dato.</p>
+      </div>
+      <div class="done" id="done" hidden>
+        <div class="ok">✓</div>
+        <h3>¡Cita reservada!</h3>
+        <p id="doneText"></p>
+        <p class="note">En la web real, la cita aparecería ahora en el Google Calendar de la clínica y el paciente recibiría un correo de confirmación.</p>
+        <button class="btn ghost" id="again" style="margin-top:16px">Hacer otra reserva</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="preguntas">
+  <div class="wrap faq">
+    <h2>Preguntas frecuentes</h2>
+    <details><summary>¿Atienden urgencias?</summary><p>Sí, de lunes a sábado. Escríbenos por WhatsApp y te damos el primer hueco libre del día.</p></details>
+    <details><summary>¿Puedo pagar en cuotas?</summary><p>Ortodoncia e implantes se pueden pagar en cuotas mensuales sin intereses.</p></details>
+    <details><summary>¿Atienden a niños?</summary><p>Sí, desde los 3 años, con citas más largas para que vengan tranquilos.</p></details>
+  </div>
+</section>
+
+<footer><div class="wrap"><div><b>Clínica Dental Albor</b><br>Av. Principal 123, Centro · Lun-Sáb 9:00-19:00</div><div>Web de ejemplo · <a href="../../" style="color:#FFC857">Alejo Web Studio</a></div></div></footer>
+<a class="wa" href="#reserva" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg></a>
+<script src="reserva.js"></script>
+</body>
+</html>

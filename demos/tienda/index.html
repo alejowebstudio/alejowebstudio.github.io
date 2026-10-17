@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Tostadero Cumbre · Tienda de ejemplo</title>
+<meta name="description" content="Tienda online de ejemplo de Alejo Web Studio: café de especialidad con carrito y pedido por WhatsApp.">
+<link rel="icon" href="../../img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Work+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--paper:#F4EDE2;--card:#FBF7F0;--ink:#2A1E16;--muted:#76624F;--rust:#B4532A;--rust-d:#923F1D;--line:#E2D5C3;--green:#3F6B4A}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+body{font-family:"Work Sans",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;font-size:16.5px}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--rust);outline-offset:2px}
+.demo{background:var(--ink);color:var(--paper);font-size:14px;text-align:center;padding:8px 16px}
+.demo a{color:#F2B48F}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:66px}
+.logo{font-family:Fraunces,serif;font-weight:800;font-size:24px;letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
+.logo span{color:var(--rust)}
+.cartbtn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);border:0;border-radius:999px;padding:10px 18px;font-weight:600}
+.cartbtn b{background:var(--rust);color:#fff;border-radius:999px;min-width:24px;height:24px;display:grid;place-items:center;font-size:13px;padding:0 6px}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end;padding:56px 0 40px}
+.hero h1{font-family:Fraunces,serif;font-weight:800;font-size:clamp(42px,6.4vw,84px);line-height:.95;letter-spacing:-.03em}
+.hero h1 i{color:var(--rust);font-style:italic;font-weight:600}
+.hero p{color:var(--muted);font-size:18px;max-width:42ch}
+.ship{display:inline-block;margin-top:14px;background:var(--green);color:#fff;border-radius:999px;padding:6px 14px;font-size:14px;font-weight:600}
+.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:7px 14px;font-weight:600;font-size:14.5px}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.tools{display:flex;gap:10px;flex-wrap:wrap}
+.tools input,.tools select{border:1.5px solid var(--line);background:var(--card);border-radius:12px;padding:9px 12px;min-width:0}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:28px 0 72px}
+.p{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.bag{aspect-ratio:4/5;border-radius:14px;display:grid;place-items:center;position:relative;overflow:hidden}
+.bag .pk{width:56%;height:74%;border-radius:10px 10px 14px 14px;background:var(--c);position:relative;box-shadow:inset -10px 0 0 rgba(0,0,0,.08)}
+.bag .pk::before{content:"";position:absolute;left:0;right:0;top:0;height:16%;background:rgba(0,0,0,.18);border-radius:10px 10px 0 0}
+.bag .pk span{position:absolute;left:10%;right:10%;top:34%;background:var(--card);border-radius:6px;padding:8px 6px;font-family:Fraunces,serif;font-weight:800;font-size:13px;text-align:center;line-height:1.1}
+.bag .tag{position:absolute;left:10px;top:10px;background:var(--ink);color:var(--paper);font-size:12px;font-weight:600;border-radius:999px;padding:3px 10px}
+.p h3{font-family:Fraunces,serif;font-size:20px;letter-spacing:-.01em}
+.p .notes{color:var(--muted);font-size:14.5px}
+.p .row{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.p .price{font-weight:600;font-size:18px}
+.add{background:var(--rust);color:#fff;border:0;border-radius:12px;padding:9px 14px;font-weight:600}
+.add:hover{background:var(--rust-d)}
+.add.ok{background:var(--green)}
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px 0}
+/* carrito */
+.scrim{position:fixed;inset:0;background:rgba(42,30,22,.45);z-index:20}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--card);z-index:21;display:flex;flex-direction:column;box-shadow:-20px 0 50px -20px rgba(0,0,0,.4);padding-bottom:env(safe-area-inset-bottom)}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}
+.dh h2{font-family:Fraunces,serif;font-size:24px}
+.x{border:0;background:none;font-size:28px;line-height:1}
+.items{flex:1;overflow:auto;padding:12px 22px}
+.it{display:grid;grid-template-columns:1fr auto;gap:6px 12px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.it .n{font-weight:600}
+.it .q{display:flex;align-items:center;gap:8px}
+.it .q button{width:30px;height:30px;border-radius:9px;border:1.5px solid var(--line);background:var(--paper);font-weight:700}
+.it .s{color:var(--muted);font-size:14px}
+.df{padding:18px 22px;border-top:1px solid var(--line);display:grid;gap:10px}
+.df label{display:grid;gap:4px;font-size:14px;font-weight:600}
+.df input,.df select{border:1.5px solid var(--line);background:var(--paper);border-radius:10px;padding:9px 12px}
+.tot{display:flex;justify-content:space-between;font-size:15px}
+.tot.big{font-size:20px;font-weight:600;font-family:Fraunces,serif}
+.send{display:block;text-align:center;background:#1F8F4E;color:#fff;text-decoration:none;font-weight:600;border-radius:12px;padding:13px}
+.send[aria-disabled="true"]{background:var(--line);color:var(--muted);pointer-events:none}
+.small{font-size:12.5px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:36px 0;color:var(--muted);font-size:14.5px}
+@media (max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.grid{grid-template-columns:1fr 1fr;gap:12px}.hero{grid-template-columns:1fr;padding-top:36px}.p{padding:12px}.p h3{font-size:17px}.p .row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<p class="demo">Tienda de ejemplo hecha por <a href="../../">Alejo Web Studio</a>. El negocio es ficticio y no se cobra nada.</p>
+<header class="top"><div class="wrap">
+  <a class="logo" href="#">Tostadero <span>Cumbre</span></a>
+  <button class="cartbtn" id="openCart" aria-haspopup="dialog">Carrito <b id="count">0</b></button>
+</div></header>
+<main class="wrap">
+  <section class="hero">
+    <h1>Café de altura, <i>tostado</i> esta semana.</h1>
+    <div><p>Granos de pequeños productores, tostados en lotes cortos y enviados en 48 horas. Elige, añade al carrito y confirma tu pedido por WhatsApp.</p><span class="ship">Envío gratis desde 40 USD</span></div>
+  </section>
+  <div class="bar">
+    <div class="chips" id="cats" role="group" aria-label="Filtrar por tipo"></div>
+    <div class="tools">
+      <input id="q" type="search" placeholder="Buscar café…" aria-label="Buscar">
+      <select id="sort" aria-label="Ordenar"><option value="pop">Más vendidos</option><option value="asc">Precio: menor a mayor</option><option value="desc">Precio: mayor a menor</option></select>
+    </div>
+  </div>
+  <div class="grid" id="grid" aria-live="polite"></div>
+</main>
+<footer><div class="wrap">Tostadero Cumbre es un negocio ficticio · Tienda de ejemplo de <a href="../../" style="color:var(--rust)">Alejo Web Studio</a> · En la tienda real, los productos se editan desde una hoja de Google.</div></footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" hidden>
+  <div class="dh"><h2 id="cartTitle">Tu pedido</h2><button class="x" id="closeCart" aria-label="Cerrar">×</button></div>
+  <div class="items" id="items"></div>
+  <div class="df">
+    <label>Nombre<input id="cname" autocomplete="name" placeholder="Para el pedido"></label>
+    <label>Entrega<select id="zone"><option value="0">Recojo en tienda (gratis)</option><option value="3">Envío en la ciudad (3 USD)</option><option value="6">Envío nacional (6 USD)</option></select></label>
+    <div class="tot"><span>Subtotal</span><span id="sub">0.00 USD</span></div>
+    <div class="tot"><span>Envío</span><span id="shipv">0.00 USD</span></div>
+    <div class="tot big"><span>Total</span><span id="total">0.00 USD</span></div>
+    <a class="send" id="send" href="#" target="_blank" rel="noopener" aria-disabled="true">Enviar pedido por WhatsApp</a>
+    <p class="small">Demostración: el botón abre WhatsApp con el pedido escrito para que elijas a quién enviarlo. En la tienda real va directo al negocio, o se cobra con tarjeta.</p>
+  </div>
+</aside>
+<script src="tienda.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Valdés & Ruano Abogados · Web de ejemplo</title>
+<meta name="description" content="Web de ejemplo de Alejo Web Studio: estudio jurídico ficticio con evaluador de casos.">
+<link rel="icon" href="../../img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Libre+Franklin:wght@400;500;600&display=swap">
+<style>
+:root{--navy:#14213A;--navy2:#1C2C4B;--cream:#F5F0E6;--gold:#B8955A;--ink:#1A1A1A;--muted:#5E6472;--line:#DDD4C4;--white:#FFFDF8}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+body{font-family:"Libre Franklin",system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;font-size:16.5px}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.demo{background:#000;color:#ddd;font-size:14px;text-align:center;padding:8px 16px}
+.demo a{color:var(--gold)}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+.serif{font-family:"Cormorant Garamond",Georgia,serif}
+.hero{background:var(--navy);color:var(--cream);padding:0 0 96px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:26px 0;border-bottom:1px solid rgba(245,240,230,.15)}
+.mark{font-family:"Cormorant Garamond",serif;font-size:26px;letter-spacing:.02em;text-decoration:none;color:var(--cream)}
+.mark b{color:var(--gold);font-weight:500}
+.top nav{display:flex;gap:28px;font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+.top nav a{color:#C9CFDB;text-decoration:none}
+.hero .in{display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:end;padding-top:88px}
+.hero h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(46px,6.6vw,92px);line-height:.98;letter-spacing:-.01em}
+.hero h1 i{color:var(--gold)}
+.hero p{color:#C9CFDB;font-size:18px;max-width:40ch}
+.cta{display:inline-block;margin-top:26px;border:1px solid var(--gold);color:var(--cream);text-decoration:none;padding:14px 26px;letter-spacing:.1em;text-transform:uppercase;font-size:13px}
+.cta:hover{background:var(--gold);color:var(--navy)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);margin-top:72px;border-top:1px solid rgba(245,240,230,.15)}
+.kpis div{padding:24px 0 0}
+.kpis b{display:block;font-family:"Cormorant Garamond",serif;font-size:44px;font-weight:500;color:var(--gold);line-height:1}
+.kpis span{color:#C9CFDB;font-size:14px}
+section{padding:96px 0}
+.eyebrow{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(36px,4.6vw,58px);line-height:1.02;margin-bottom:36px;max-width:18ch}
+.areas{border-top:1px solid var(--line)}
+.area{border-bottom:1px solid var(--line)}
+.area button{width:100%;display:grid;grid-template-columns:60px 1fr 30px;gap:10px;align-items:baseline;background:none;border:0;padding:26px 0;text-align:left}
+.area .n{font-family:"Cormorant Garamond",serif;color:var(--gold);font-size:20px}
+.area .t{font-family:"Cormorant Garamond",serif;font-size:clamp(24px,3vw,34px)}
+.area .pl{font-size:26px;color:var(--gold);transition:transform .2s}
+.area button[aria-expanded="true"] .pl{transform:rotate(45deg)}
+.area .body{display:grid;grid-template-columns:60px 1fr;gap:10px;padding:0 0 28px}
+.area .body p{color:var(--muted);max-width:62ch}
+.area .body ul{grid-column:2;margin-top:10px;color:var(--muted);padding-left:18px}
+.eval{background:var(--white);border:1px solid var(--line)}
+.ev{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:start}
+.ev .lead{color:var(--muted);max-width:40ch}
+.box{border:1px solid var(--line);background:var(--cream);padding:32px}
+.prog{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.q{font-family:"Cormorant Garamond",serif;font-size:28px;line-height:1.15;margin-bottom:20px}
+.ch{display:grid;gap:10px}
+.ch button{border:1px solid var(--line);background:var(--white);text-align:left;padding:14px 18px;display:flex;justify-content:space-between;gap:10px}
+.ch button:hover{border-color:var(--gold)}
+.ch button::after{content:"→";color:var(--gold)}
+.back{margin-top:18px;background:none;border:0;color:var(--muted);text-decoration:underline;font-size:14px}
+.res h3{font-family:"Cormorant Garamond",serif;font-size:30px;font-weight:500;margin-bottom:10px}
+.res p{color:var(--muted)}
+.res dl{margin:20px 0;display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:15px}
+.res dt{color:var(--muted)}
+.res textarea,.res input{width:100%;border:1px solid var(--line);background:var(--white);padding:12px;margin-top:8px}
+.solid{display:inline-block;margin-top:14px;background:var(--navy);color:var(--cream);border:0;padding:14px 24px;letter-spacing:.1em;text-transform:uppercase;font-size:13px}
+.solid:disabled{opacity:.4;cursor:not-allowed}
+.fees{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.fees div{padding:30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fees h3{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:500}
+.fees .p{font-family:"Cormorant Garamond",serif;font-size:40px;color:var(--gold);margin:8px 0}
+.fees p:not(.p){color:var(--muted);font-size:15px}
+.team{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.m{display:grid;grid-template-columns:96px 1fr;gap:22px;align-items:center}
+.m .av{width:96px;height:96px;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-size:36px}
+.m h3{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:500}
+.m p{color:var(--muted);font-size:15px}
+footer{background:var(--navy);color:#C9CFDB;padding:56px 0;font-size:14.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer a{color:var(--gold)}
+@media (max-width:900px){.hero .in,.ev{grid-template-columns:1fr;gap:28px}.top nav{display:none}.fees,.team{grid-template-columns:1fr}}
+@media (max-width:560px){.kpis b{font-size:34px}.box{padding:22px}.area button{grid-template-columns:40px 1fr 24px}.area .body{grid-template-columns:40px 1fr}.m{grid-template-columns:72px 1fr}.m .av{width:72px;height:72px;font-size:28px}}
+</style>
+</head>
+<body>
+<p class="demo">Web de ejemplo hecha por <a href="../../">Alejo Web Studio</a>. El estudio y las personas son ficticios.</p>
+<header class="hero">
+  <div class="wrap">
+    <div class="top"><a class="mark" href="#">Valdés <b>&amp;</b> Ruano</a><nav><a href="#areas">Áreas</a><a href="#evaluar">Evaluar mi caso</a><a href="#honorarios">Honorarios</a><a href="#equipo">Equipo</a></nav></div>
+    <div class="in">
+      <h1>Defendemos lo que <i>has construido</i>.</h1>
+      <div><p>Derecho laboral, civil y de empresa para familias y pequeños negocios. Te explicamos tu caso con claridad, sin letra pequeña.</p><a class="cta" href="#evaluar">Evaluar mi caso gratis</a></div>
+    </div>
+    <div class="kpis"><div><b>18</b><span>años de ejercicio</span></div><div><b>3</b><span>áreas de práctica</span></div><div><b>24 h</b><span>para responderte</span></div></div>
+  </div>
+</header>
+
+<section id="areas">
+  <div class="wrap">
+    <p class="eyebrow">Áreas de práctica</p>
+    <h2>En qué te podemos ayudar.</h2>
+    <div class="areas" id="areaList">
+      <div class="area"><button aria-expanded="false"><span class="n">I</span><span class="t">Derecho laboral</span><span class="pl">+</span></button><div class="body" hidden><span></span><p>Despidos, liquidaciones, horas extra impagas y acoso laboral. También asesoramos a empresas para evitar conflictos.</p><ul><li>Revisión de liquidación</li><li>Demandas y conciliaciones</li><li>Contratos y reglamentos internos</li></ul></div></div>
+      <div class="area"><button aria-expanded="false"><span class="n">II</span><span class="t">Derecho civil y familia</span><span class="pl">+</span></button><div class="body" hidden><span></span><p>Herencias, divorcios, pensiones de alimentos, contratos de alquiler y compraventa de inmuebles.</p><ul><li>Sucesiones y testamentos</li><li>Divorcio de mutuo acuerdo</li><li>Desalojos y deudas</li></ul></div></div>
+      <div class="area"><button aria-expanded="false"><span class="n">III</span><span class="t">Empresas y emprendedores</span><span class="pl">+</span></button><div class="body" hidden><span></span><p>Constitución de sociedades, marcas, contratos con clientes y proveedores, y cobro de facturas impagas.</p><ul><li>Constitución de empresa</li><li>Registro de marca</li><li>Cobranza de deudas</li></ul></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="eval" id="evaluar">
+  <div class="wrap ev">
+    <div><p class="eyebrow">Evaluador de casos</p><h2>Cuéntanos tu caso en un minuto.</h2><p class="lead">Responde tres preguntas y te decimos qué tipo de caso es, qué documentos preparar y cuál es el siguiente paso. Sin compromiso.</p></div>
+    <div class="box" id="box" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="honorarios">
+  <div class="wrap">
+    <p class="eyebrow">Honorarios</p>
+    <h2>Sabes cuánto cuesta antes de empezar.</h2>
+    <div class="fees">
+      <div><h3>Primera consulta</h3><p class="p">Gratis</p><p>30 minutos por videollamada o en el despacho para entender tu caso.</p></div>
+      <div><h3>Revisión de documentos</h3><p class="p">desde 40 USD</p><p>Contratos, liquidaciones o notificaciones, con informe escrito.</p></div>
+      <div><h3>Representación</h3><p class="p">a presupuesto</p><p>Precio cerrado por fases, por escrito y antes de firmar nada.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="equipo" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">Equipo</p>
+    <h2>Quién lleva tu caso.</h2>
+    <div class="team">
+      <div class="m"><div class="av">MV</div><div><h3>Marta Valdés</h3><p>Socia fundadora · Derecho laboral y de empresa</p></div></div>
+      <div class="m"><div class="av">JR</div><div><h3>Julián Ruano</h3><p>Socio · Derecho civil y familia</p></div></div>
+    </div>
+  </div>
+</section>
+<footer><div class="wrap"><div><span class="serif" style="font-size:22px;color:var(--cream)">Valdés &amp; Ruano Abogados</span><br>Estudio ficticio · Lun-Vie 9:00-18:00</div><div>Web de ejemplo de <a href="../../">Alejo Web Studio</a></div></div></footer>
+<script src="estudio.js"></script>
+</body>
+</html>
