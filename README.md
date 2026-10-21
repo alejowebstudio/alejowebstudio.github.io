@@ -17,9 +17,9 @@
 
 | Servicio | Precio |
 |---|---|
-| Renovar tu web | 80 |
-| Web informativa | 100 |
-| Web con funciones dinámicas | desde 130 |
+| Renovar tu web | 60 |
+| Web informativa | 75 |
+| Web con funciones dinámicas | desde 110 |
 | Tienda online o aplicación web | presupuesto a medida |
 
 Pago con PayPal, Payoneer o Binance Pay (USDT). Condiciones completas: [alejowebstudio.github.io/condiciones](https://alejowebstudio.github.io/condiciones/).

@@ -94,8 +94,8 @@
     Q.forEach(function (q, i) { if (ans[i] === 1) score += q[1]; else fixes.push([q[1], q[2]]); });
     fixes.sort(function (a, b) { return b[0] - a[0]; });
     var v = score >= 85 ? ['Tu web está en buena forma', 'Solo quedan detalles. Si quieres, te decimos cuáles gratis.', 'var(--ok)', 'Mantenimiento (10 USD/mes) o un cambio suelto'] :
-      score >= 55 ? ['Tu web funciona, pero pierde clientes', 'Con unos arreglos concretos puede traerte bastantes más contactos.', 'var(--accent)', 'Renovar tu web (80 USD)'] :
-        ['Tu web te está quitando clientes', 'Lo más rentable suele ser rehacerla: rápida, segura y pensada para el celular.', 'var(--bad)', 'Renovar tu web (80 USD) o una web nueva (100 USD)'];
+      score >= 55 ? ['Tu web funciona, pero pierde clientes', 'Con unos arreglos concretos puede traerte bastantes más contactos.', 'var(--accent)', 'Renovar tu web (60 USD)'] :
+        ['Tu web te está quitando clientes', 'Lo más rentable suele ser rehacerla: rápida, segura y pensada para el celular.', 'var(--bad)', 'Renovar tu web (60 USD) o una web nueva (75 USD)'];
     var body = 'Hice el test de mi web y saqué ' + score + '/100.\nLo que me falta:\n' + fixes.map(function (f) { return '- ' + f[1]; }).join('\n') + '\n\nMi web:\nNegocio:\nCiudad y país:\n';
     var gm = 'https://mail.google.com/mail/?view=cm&fs=1&to=alejo.webstudio@gmail.com&su=' + encodeURIComponent('Test de mi web: ' + score + '/100') + '&body=' + encodeURIComponent(body);
     $('res').innerHTML = '<div class="score"><div class="ring" style="--v:' + score + ';--c:' + v[2] + '"><span>' + score + '</span></div><div class="verdict"><h3>' + v[0] + '</h3><p>' + v[1] + '</p></div></div>' +
